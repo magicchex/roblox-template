@@ -7,3 +7,4 @@ function setup(player: Player)
 	local player = player.Character
 end
 Players.PlayerAdded:Connect(setup)
+print("Test the workflows")
