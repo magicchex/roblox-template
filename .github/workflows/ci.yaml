@@ -2,7 +2,7 @@ name: continous integration
 
 on:
     push:
-        branches: main
+        branches: master
         paths: src/**.luau
 jobs:
     setup_environment:
