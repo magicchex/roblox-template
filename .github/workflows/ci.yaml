@@ -5,7 +5,7 @@ on:
         branches: master
         paths: src/**.luau
 jobs:
-    setup_environment:
+    job1:
         runs-on: ubuntu-22.04
         steps:
             - name: checkout
@@ -16,26 +16,15 @@ jobs:
               uses: actions-rust-lang/setup-rust-toolchain@v1
             - name: aftman_setup
               uses: ok-nick/setup-aftman@v0.4.2
-            - name: aftman install
+            - name: install aftman tools
               run: aftman install
-            - name: selene install
+            - name: install selene
               run: cargo install selene
-    selene:
-        needs: setup_environment
-        runs-on: ubuntu-22.04
-        steps:
-            - name: selene
-              run: selene ./src
-    stylua:
-        needs: selene
-        runs-on: ubuntu-22.04
-        steps:
-            - name: stylua
-              run: stylua --indent-type Tabs --quote-style ForceSingle  --collapse-simple-statement Never --call-parentheses Always ./src
-    moonwave:
-        runs-on: ubuntu-22.04
-        steps:
-          - name: install movewave and publish
-            run: |
-                npx moonwave@latest
-                moonwave build --publish --code .\src
+            - name: install moonwave
+              run: npx moonwave@latest
+            - name: run selene
+              run: selene src
+            - name: run stylua
+              run: stylua --indent-type Tabs --quote-style ForceSingle  --collapse-simple-statement Never --call-parentheses Always src
+            - name: run moonwave
+              run: moonwave build --publish --code src
