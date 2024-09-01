@@ -21,7 +21,7 @@ jobs:
             - name: install selene
               run: cargo install selene
             - name: install moonwave
-              run: npx moonwave@latest
+              run: npm i -g moonwave
             - name: run selene
               run: selene src
             - name: run stylua
