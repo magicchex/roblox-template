@@ -3,7 +3,7 @@ name: continous integration
 on:
     push:
         branches: main
-        paths: src/
+        paths: src/**.luau
 jobs:
     setup_environment:
         runs-on: ubuntu-22.04
