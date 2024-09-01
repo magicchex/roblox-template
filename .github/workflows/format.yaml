@@ -1,0 +1,33 @@
+name: format
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths: ./src
+
+jobs:
+  setup_environment:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: aftman_setup
+        uses: ok-nick/setup-aftman@v0.4.2
+      - name: aftman install
+        run: aftman install
+  selene:
+    needs: setup_environment
+    runs-on: ubuntu-22.04
+    steps:
+      - name: selene
+        run: selene ./src
+  stylua:
+    needs: selene
+    runs-on: ubuntu-22.04
+    steps:
+      - name: stylua
+        run: stylua --indent-type Tabs --quote-style ForceSingle  --collapse-simple-statement Never --call-parentheses Always ./src
+
+
+
