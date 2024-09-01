@@ -11,7 +11,7 @@ on:
     paths: src/**.luau
 
 jobs:
-  job1:
+  format_and_lint:
     runs-on: ubuntu-22.04
     steps:
       - name: checkout
