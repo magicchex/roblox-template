@@ -1,0 +1,18 @@
+.vscode
+# Moonwave
+build
+# Wally Dependencies
+Packages
+
+# Hide completed places
+places/*
+
+# Hide env
+.env
+
+# Project place file
+/roblox-runner.rbxlx
+
+# Roblox Studio lock files
+/*.rbxlx.lock
+/*.rbxl.lock
