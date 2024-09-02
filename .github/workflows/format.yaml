@@ -1,10 +1,6 @@
-name: format
+name: format on pull request
 
 on:
-  push:
-    branches:
-      - master
-    paths: src/**.luau
   pull_request:
     branches:
       - master
@@ -16,17 +12,45 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
+        
+      # - name: setup_node
+      #   uses: actions/setup-node@v4
+        
       - name: rust_cargo
         uses: actions-rust-lang/setup-rust-toolchain@v1
+        
       - name: aftman_setup
         uses: ok-nick/setup-aftman@v0.4.2
-      - name: install aftman
+        
+      # - name: install git
+      #   run: sudo apt-get install git
+        
+      # - name: setup git
+      #   run: |
+      #     git config --global user.email "148505724+magicchex@users.noreply.github.com"
+      #     git config --global user.name "magicchex"
+      #     git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/magicchex/roblox-runner.git
+        
+      - name: install aftman tools
         run: aftman install
+        
       - name: install selene
         run: cargo install selene
+        
+      # - name: install moonwave
+      #   run: npm i -g moonwave
+        
       - name: run selene
         run: selene src
+        
       - name: run stylua
-        run: stylua --indent-type Tabs --quote-style ForceSingle  --collapse-simple-statement Never --call-parentheses Always src
-
-
+        run: stylua --indent-type Tabs --quote-style ForceSingle --collapse-simple-statement Never --call-parentheses Always src
+        
+      # - name: build and upload place
+      #   run: rojo upload --asset_id "75130637870501" --universe_id "6501573027" --api_key ${{ secrets.PLACE_PUBLISHING_KEY }}
+        
+      # - name: publish places
+      #   run: rbxcloud experience publish
+        
+      # - name: run moonwave
+      #   run: moonwave build --publish --code src
