@@ -8,4 +8,4 @@ function setup(player: Player)
 	print(character)
 end
 Players.PlayerAdded:Connect(setup)
-print("Test the workflows: attempt 11")
+print("Test the workflows: attempt 12")

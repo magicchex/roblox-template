@@ -48,8 +48,5 @@ jobs:
       - name: build and upload place
         run: rojo upload --asset_id "75130637870501" --universe_id "6501573027" --api_key ${{ secrets.PLACE_PUBLISHING_KEY }}
         
-      - name: publish places
-        run: rbxcloud experience publish
-        
       - name: run moonwave
         run: moonwave build --publish --code src
