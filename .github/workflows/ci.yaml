@@ -27,6 +27,8 @@ jobs:
       - name: Selene
         run: selene $SOURCE_FOLDER
   deploy-place-to-roblox:
+    permissions:
+      contents: write
     needs: run-selene-linter
     runs-on: ubuntu-22.04
     steps:
@@ -74,12 +76,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
+
       - name: Install Node
         uses: actions/setup-node@v4
 
       - name: Install Moonwave
-        run: npx moonwave
+        run: npm install --global moonwave
 
       - name: Moonwave Git Configuration
         run: |
