@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://magicchex.github.io/roblox-runner/blog</id>
-    <title>Roblox Runner Blog</title>
+    <id>https://magicchex.github.io/roblox-template/blog</id>
+    <title>Template Documentation Blog</title>
     <updated>2024-08-31T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://magicchex.github.io/roblox-runner/blog"/>
-    <subtitle>Roblox Runner Blog</subtitle>
+    <link rel="alternate" href="https://magicchex.github.io/roblox-template/blog"/>
+    <subtitle>Template Documentation Blog</subtitle>
     <entry>
         <title type="html"><![CDATA[test]]></title>
-        <id>https://magicchex.github.io/roblox-runner/blog/2024/08/31/test</id>
-        <link href="https://magicchex.github.io/roblox-runner/blog/2024/08/31/test"/>
+        <id>https://magicchex.github.io/roblox-template/blog/2024/08/31/test</id>
+        <link href="https://magicchex.github.io/roblox-template/blog/2024/08/31/test"/>
         <updated>2024-08-31T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[blog test]]></summary>
         <content type="html"><![CDATA[<p>blog test</p>]]></content>
