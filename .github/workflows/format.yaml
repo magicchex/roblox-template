@@ -25,6 +25,8 @@ jobs:
         run: selene $SOURCE_FOLDER
   run-stylua-formatter:
     needs: run-selene-linter
+    permissions: 
+      contents: write
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
