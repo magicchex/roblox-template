@@ -13,6 +13,7 @@ jobs:
       USERNAME: magicchex
       REPOSITORY: roblox-template
       SOURCE_FOLDER: src
+      GITHUB_CONTEXT: ${{ toJson(github) }}
     permissions:
       contents: write
     runs-on: ubuntu-22.04
@@ -47,9 +48,9 @@ jobs:
       - name: Stylua Styling
         run: stylua --indent-type Tabs --quote-style ForceSingle --collapse-simple-statement Never --call-parentheses Always $SOURCE_FOLDER
 
-      - name: Debugging
-        run: echo ${{github.head_ref}}
-        
+      - name: Dump GitHub context
+        run: echo "$GITHUB_CONTEXT"
+
       - name: Save Changes to Pull Request Branch
         run: |
           git commit -am "Formatting and Linting from GitHub Actions"
