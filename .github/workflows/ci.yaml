@@ -36,8 +36,8 @@ jobs:
         
       - name: Setup Git
         run: |
-          git config --global user.email $NO_REPLY_EMAIL
-          git config --global user.name $USERNAME
+          git config user.email $NO_REPLY_EMAIL
+          git config user.name $USERNAME
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$USERNAME/$REPOSITORY.git
         
       - name: Install Aftman tools
