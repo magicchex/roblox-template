@@ -49,6 +49,6 @@ jobs:
             git config --global user.email $GIT_NO_REPLY_EMAIL
             git add .
             git commit -m "Apply code formatting"
-            git push
+            git push HEAD:refs/head/${{github.event.pull_request.head.label}}
           fi
           rm git_changes.txt
