@@ -13,7 +13,6 @@ jobs:
       USERNAME: magicchex
       REPOSITORY: roblox-template
       SOURCE_FOLDER: src
-      # GITHUB_CONTEXT: ${{ toJson(github) }}
     permissions:
       contents: write
     runs-on: ubuntu-22.04
@@ -35,6 +34,7 @@ jobs:
           git config --global user.email $NO_REPLY_EMAIL
           git config --global user.name $USERNAME
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$USERNAME/$REPOSITORY.git
+          git pull origin HEAD:refs/heads/${{github.event.pull_request.head.ref}}
         
       - name: install aftman tools
         run: aftman install
@@ -51,10 +51,7 @@ jobs:
       # - name: Dump GitHub context
       #   run: echo "$GITHUB_CONTEXT"
 
-      - name: List directory
-        run: ls -a
       - name: Save Changes to Pull Request Branch
         run: |
-          git init
           git commit -am "Formatting and Linting from GitHub Actions"
           git push origin HEAD:refs/heads/${{github.event.pull_request.head.ref}}
