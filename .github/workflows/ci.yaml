@@ -44,19 +44,18 @@ jobs:
       - name: Stylua
         run: stylua --indent-type Tabs --quote-style ForceSingle --collapse-simple-statement Never --call-parentheses Always $SOURCE_FOLDER
 
-      - name: Check for changes
-        run: echo "$(git diff)" >> git_changes.txt
-      
-      - name: Commit changes made by Stylua
+      - name: Commit any changes made by Stylua
         run: |
-          if [[ $(cat git_changes.txt) != "" ]]; then
+          if [[ $(git diff) != "" ]]; then
             git config --global user.name $GIT_USERNAME
             git config --global user.email $GIT_NO_REPLY_EMAIL
             git add .
             git commit -m "Apply code formatting"
             git push
+            echo "Stylua made changes"
+          else
+            echo "No stylua changes"
           fi
-          rm git_changes.txt
 
       - name: Install Wally Dependencies
         run: |
