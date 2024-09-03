@@ -1,1 +1,1 @@
-print("temp")
+-- Template Server Script (2)

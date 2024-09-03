@@ -1,1 +1,1 @@
-print("template")
+-- Template Client Script (2)

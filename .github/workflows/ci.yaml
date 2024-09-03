@@ -3,53 +3,58 @@ name: continuous integration
 on:
   push:
     branches: master
-    paths: src/**.luau
+    paths: src/**/*.luau
 
 jobs:
   publish:
+    env:
+      NO_REPLY_EMAIL: 148505724+magicchex@users.noreply.github.com
+      USERNAME: magicchex
+      REPOSITORY: roblox-template
+      SOURCE_FOLDER: src
+      UNIVERSE_ID: 6501573027
+      PLACE_ID: 75130637870501
     permissions:
       contents: write
       pages: write
     runs-on: ubuntu-22.04
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v4
         
-      - name: setup_node
+      - name: Install Node
         uses: actions/setup-node@v4
         
-      - name: rust_cargo
+      - name: Install Cargo
         uses: actions-rust-lang/setup-rust-toolchain@v1
         
-      - name: aftman_setup
+      - name: Install Aftman
         uses: ok-nick/setup-aftman@v0.4.2
         
-      - name: install git
+      - name: Install Git
         run: sudo apt-get install git
         
-      - name: setup git
+      - name: Setup Git
         run: |
-          git config --global user.email "148505724+magicchex@users.noreply.github.com"
-          git config --global user.name "magicchex"
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/magicchex/roblox-runner.git
+          git config --global user.email $NO_REPLY_EMAIL
+          git config --global user.name $USERNAME
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$USERNAME/$REPOSITORY.git
         
-      - name: install aftman tools
+      - name: Install Aftman tools
         run: aftman install
         
-      # - name: install selene
-      #   run: cargo install selene
+      - name: Install Moonwave
+        run: npx moonwave
+
+      - name: Install Wally Dependencies
+        run: |
+          if [ -f "wally.toml" ]; then
+            wally install
+          else
+            echo "Skipped Wally."
+          fi
+      - name: Build and Upload Place to Roblox
+        run: rojo upload --asset_id $PLACE_ID --universe_id $UNIVERSE_ID --api_key ${{ secrets.PLACE_PUBLISHING_KEY }}
         
-      - name: install moonwave
-        run: npm i -g moonwave
-        
-      # - name: run selene
-      #   run: selene src
-        
-      # - name: run stylua
-      #   run: stylua --indent-type Tabs --quote-style ForceSingle --collapse-simple-statement Never --call-parentheses Always src
-        
-      - name: build and upload place
-        run: rojo upload --asset_id "75130637870501" --universe_id "6501573027" --api_key ${{ secrets.PLACE_PUBLISHING_KEY }}
-        
-      - name: run moonwave
-        run: moonwave build --publish --code src
+      - name: Build Documentation
+        run: moonwave build --publish --code $SOURCE_FOLDER

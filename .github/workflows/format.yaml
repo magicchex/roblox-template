@@ -4,17 +4,22 @@ on:
   pull_request:
     branches:
       - master
-    paths: src/**.luau
+    paths: src/**/*.luau
 
 jobs:
   format_and_lint:
+    env:
+      NO_REPLY_EMAIL: 148505724+magicchex@users.noreply.github.com
+      USERNAME: magicchex
+      REPOSITORY: roblox-template
+      SOURCE_FOLDER: src
+      GITHUB_CONTEXT: ${{ toJson(github) }}
+    permissions:
+      contents: write
     runs-on: ubuntu-22.04
     steps:
       - name: checkout
         uses: actions/checkout@v4
-        
-      # - name: setup_node
-      #   uses: actions/setup-node@v4
         
       - name: rust_cargo
         uses: actions-rust-lang/setup-rust-toolchain@v1
@@ -22,14 +27,14 @@ jobs:
       - name: aftman_setup
         uses: ok-nick/setup-aftman@v0.4.2
         
-      # - name: install git
-      #   run: sudo apt-get install git
+      - name: install git
+        run: sudo apt-get install git
         
-      # - name: setup git
-      #   run: |
-      #     git config --global user.email "148505724+magicchex@users.noreply.github.com"
-      #     git config --global user.name "magicchex"
-      #     git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/magicchex/roblox-runner.git
+      - name: setup git
+        run: |
+          git config --global user.email $NO_REPLY_EMAIL
+          git config --global user.name $USERNAME
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$USERNAME/$REPOSITORY.git
         
       - name: install aftman tools
         run: aftman install
@@ -37,20 +42,16 @@ jobs:
       - name: install selene
         run: cargo install selene
         
-      # - name: install moonwave
-      #   run: npm i -g moonwave
+      - name: Selene Linter
+        run: selene $SOURCE_FOLDER
         
-      - name: run selene
-        run: selene src
-        
-      - name: run stylua
-        run: stylua --indent-type Tabs --quote-style ForceSingle --collapse-simple-statement Never --call-parentheses Always src
-        
-      # - name: build and upload place
-      #   run: rojo upload --asset_id "75130637870501" --universe_id "6501573027" --api_key ${{ secrets.PLACE_PUBLISHING_KEY }}
-        
-      # - name: publish places
-      #   run: rbxcloud experience publish
-        
-      # - name: run moonwave
-      #   run: moonwave build --publish --code src
+      - name: Stylua Styling
+        run: stylua --indent-type Tabs --quote-style ForceSingle --collapse-simple-statement Never --call-parentheses Always $SOURCE_FOLDER
+
+      - name: Dump GitHub context
+        run: echo "$GITHUB_CONTEXT"
+
+      - name: Save Changes to Pull Request Branch
+        run: |
+          git commit -am "Formatting and Linting from GitHub Actions"
+          git push origin HEAD:refs/heads/${{github.head_ref}}
