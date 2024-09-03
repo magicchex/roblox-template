@@ -14,15 +14,11 @@ env:
   SOURCE_FOLDER: src
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
-  checkout:
+  run-selene-linter:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-  run-selene-linter:
-    needs: checkout
-    runs-on: ubuntu-22.04
-    steps:
       - name: Install Cargo
         uses: actions-rust-lang/setup-rust-toolchain@v1
       - name: Install Selene
@@ -33,6 +29,9 @@ jobs:
     needs: run-selene-linter
     runs-on: ubuntu-22.04
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
       - name: Install Aftman
         uses: ok-nick/setup-aftman@v0.4.2
       
