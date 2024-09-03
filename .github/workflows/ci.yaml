@@ -87,7 +87,7 @@ jobs:
         run: |
           git config --global user.email $GIT_NO_REPLY_EMAIL
           git config --global user.name $GIT_USERNAME
-          git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/$REPOSITORY_OWNER/$REPOSITORY.git
+          git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/$REPOSITORY_OWNER/$REPOSITORY_NAME.git
 
       - name: Deploy Documentation
         run: moonwave build --publish --code $SOURCE_FOLDER

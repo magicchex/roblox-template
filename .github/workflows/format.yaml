@@ -9,8 +9,6 @@ on:
 env:
   GIT_NO_REPLY_EMAIL: actions@github.com
   GIT_USERNAME: GitHub Actions
-  REPOSITORY_OWNER: magicchex
-  REPOSITORY_NAME: roblox-template
   SOURCE_FOLDER: src
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
@@ -31,7 +29,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
+
       - name: Install Aftman
         uses: ok-nick/setup-aftman@v0.4.2
       
