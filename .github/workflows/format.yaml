@@ -51,6 +51,8 @@ jobs:
       # - name: Dump GitHub context
       #   run: echo "$GITHUB_CONTEXT"
 
+      - name: List directory
+        run: ls -a
       - name: Save Changes to Pull Request Branch
         run: |
           git commit -am "Formatting and Linting from GitHub Actions"
