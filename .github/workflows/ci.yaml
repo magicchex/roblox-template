@@ -46,7 +46,7 @@ jobs:
 
       - name: Check for changes
         id: git-change
-        run: echo "::set-output name=change::$(git diff)"
+        run: echo "change=$(git diff)" >> $GITHUB_OUTPUT
       
       - name: Commit changes made by Stylua
         if: steps.git-change.outputs.change != ''
