@@ -45,17 +45,17 @@ jobs:
         run: stylua --indent-type Tabs --quote-style ForceSingle --collapse-simple-statement Never --call-parentheses Always $SOURCE_FOLDER
 
       - name: Check for changes
-        id: git-change
-        run: echo "change=$(git diff)" >> $GITHUB_OUTPUT
+        run: echo "GIT_CHANGE=$(git diff)" >> $GITHUB_ENV
       
       - name: Commit changes made by Stylua
-        if: steps.git-change.outputs.change != ''
         run: |
-          git config --global user.name $GIT_USERNAME
-          git config --global user.email $GIT_NO_REPLY_EMAIL
-          git add .
-          git commit -m "Apply code formatting"
-          git push
+          if [[$GIT_CHANGE != "" ]]; then
+            git config --global user.name $GIT_USERNAME
+            git config --global user.email $GIT_NO_REPLY_EMAIL
+            git add .
+            git commit -m "Apply code formatting"
+            git push
+          fi
 
       - name: Install Wally Dependencies
         run: |
