@@ -1,0 +1,8 @@
+diff --git a/src/client/temp.client.luau b/src/client/temp.client.luau
+index 7c209da..f68a50a 100644
+--- a/src/client/temp.client.luau
++++ b/src/client/temp.client.luau
+@@ -1 +1 @@
+--- Template Client Script (22)
+\ No newline at end of file
++-- Template Client Script (22)
