@@ -40,14 +40,15 @@ jobs:
         run: stylua --indent-type Tabs --quote-style ForceSingle --collapse-simple-statement Never --call-parentheses Always $SOURCE_FOLDER
 
       - name: Check for changes
-        id: git-change
-        run: echo "::set-output name=change::$(git diff)"
+        run: echo "$(git diff)" >> git_changes.txt
       
       - name: Commit changes made by Stylua
-        if: steps.git-change.outputs.change != ''
         run: |
-          git config --global user.name $GIT_USERNAME
-          git config --global user.email $GIT_NO_REPLY_EMAIL
-          git add .
-          git commit -m "Apply code formatting"
-          git push
+          if [[ $(cat git_changes.txt) != "" ]]; then
+            git config --global user.name $GIT_USERNAME
+            git config --global user.email $GIT_NO_REPLY_EMAIL
+            git add .
+            git commit -m "Apply code formatting"
+            git push HEAD:refs/head/${{github.event.pull_request.head.label}}
+          fi
+          rm git_changes.txt
