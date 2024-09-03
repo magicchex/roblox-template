@@ -47,8 +47,10 @@ jobs:
       - name: Stylua Styling
         run: stylua --indent-type Tabs --quote-style ForceSingle --collapse-simple-statement Never --call-parentheses Always $SOURCE_FOLDER
 
+      - name: Debugging
+        run: echo ${{github.head_ref}}
+        
       - name: Save Changes to Pull Request Branch
         run: |
-          echo ${{github.head_ref}}
           git commit -am "Formatting and Linting from GitHub Actions"
           git push origin HEAD:refs/heads/${{github.head_ref}}
