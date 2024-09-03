@@ -1,0 +1,56 @@
+name: PR LINTER
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths: src/**/*.luau
+
+env:
+  GIT_NO_REPLY_EMAIL: actions@github.com
+  GIT_USERNAME: GitHub Actions
+  SOURCE_FOLDER: src
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+jobs:
+  run-selene-linter:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Cargo
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+      - name: Install Selene
+        run: cargo install selene
+      - name: Selene
+        run: selene $SOURCE_FOLDER
+  # run-stylua-formatter:
+  #   needs: run-selene-linter
+  #   permissions: 
+  #     contents: write
+  #   runs-on: ubuntu-22.04
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+
+  #     - name: Install Aftman
+  #       uses: ok-nick/setup-aftman@v0.4.2
+      
+  #     - name: Install Aftman Tools
+  #       run: aftman install
+      
+  #     - name: Stylua
+  #       run: stylua --indent-type Tabs --quote-style ForceSingle --collapse-simple-statement Never --call-parentheses Always $SOURCE_FOLDER
+
+  #     - name: Check for changes
+  #       run: echo "$(git diff)" >> git_changes.txt
+      
+  #     - name: Commit changes made by Stylua
+  #       run: |
+  #         if [[ $(cat git_changes.txt) != "" ]]; then
+  #           git config --global user.name $GIT_USERNAME
+  #           git config --global user.email $GIT_NO_REPLY_EMAIL
+  #           git add .
+  #           git commit -m "Apply code formatting"
+  #           git push origin HEAD:refs/head/${{github.event.pull_request.head.ref}}
+  #         fi
+  #         rm git_changes.txt
