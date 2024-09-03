@@ -1,18 +1,19 @@
+# Vscode Folder
 .vscode
+
 # Moonwave
 build
+
 # Wally Dependencies
 Packages
-
-# Hide completed places
-places/*
 
 # Hide env
 .env
 
-# Project place file
-/roblox-runner.rbxlx
+# Rojo (Roblox) default place file location
+*.rbxlx
+*.rbxl
 
 # Roblox Studio lock files
-/*.rbxlx.lock
-/*.rbxl.lock
+*.rbxlx.lock
+*.rbxl.lock
