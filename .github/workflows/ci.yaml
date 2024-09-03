@@ -24,6 +24,8 @@ jobs:
     needs: checkout
     runs-on: ubuntu-22.04
     steps:
+      - name: List CWD
+        run: ls -a
       - name: Install Cargo
         uses: actions-rust-lang/setup-rust-toolchain@v1
       - name: Install Selene
