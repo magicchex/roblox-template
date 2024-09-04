@@ -4,12 +4,9 @@ on:
   pull_request:
     branches:
       - master
+      - release/*
+      - feature/*
 
-env:
-  GIT_NO_REPLY_EMAIL: actions@github.com
-  GIT_USERNAME: GitHub Actions
-  SOURCE_FOLDER: src
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
   run-selene-linter:
     runs-on: ubuntu-22.04
