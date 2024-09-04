@@ -6,7 +6,9 @@ on:
       - master
       - release/*
       - feature/*
-
+env:
+  SOURCE_FOLDER: src
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
   run-selene-linter:
     runs-on: ubuntu-22.04
