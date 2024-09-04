@@ -2,7 +2,12 @@ name: continuous integration
 
 on:
   push:
-    branches: master
+    branches: 
+      - master
+      - dev
+      - dev/*
+      - release/*
+      - feature/*
     paths: src/**/*.luau
 env:
   GIT_NO_REPLY_EMAIL: actions@github.com
