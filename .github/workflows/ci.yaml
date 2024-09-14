@@ -32,11 +32,7 @@ jobs:
         uses: ok-nick/setup-aftman@v0.4.2
       
       - name: Install Aftman Tools
-<<<<<<< HEAD
         run: aftman install
-=======
-        run: rokit install --no-trust-check
->>>>>>> parent of 0099d2a (replace word)
       
       - name: Stylua
         run: stylua --indent-type Tabs --quote-style ForceSingle --collapse-simple-statement Never --call-parentheses Always $SOURCE_FOLDER
