@@ -28,11 +28,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Aftman
-        uses: ok-nick/setup-aftman@v0.4.2
+      - name: Install Rokit
+        run: curl -sSf https://raw.githubusercontent.com/rojo-rbx/rokit/main/scripts/install.sh | bash
       
-      - name: Install Aftman Tools
-        run: aftman install
+      - name: Install Rokit Tools
+        run: rokit install --no-trust-check
       
       - name: Stylua
         run: stylua --indent-type Tabs --quote-style ForceSingle --collapse-simple-statement Never --call-parentheses Always $SOURCE_FOLDER
