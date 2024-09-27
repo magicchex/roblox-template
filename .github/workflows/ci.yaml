@@ -12,11 +12,10 @@ on:
 env:
   GIT_NO_REPLY_EMAIL: actions@github.com
   GIT_USERNAME: GitHub Actions
-  REPOSITORY_OWNER: magicchex
-  REPOSITORY_NAME: roblox-template
+  REPOSITORY_NAME: ${{ github.repository }}
   SOURCE_FOLDER: src
-  UNIVERSE_ID: 6501573027
-  PLACE_ID: 75130637870501
+  UNIVERSE_ID: ${{ vars.UNIVERSE_ID }}
+  PLACE_ID: ${{ vars.PLACE_ID }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   PLACE_PUBLISHING_KEY: ${{ secrets.PLACE_PUBLISHING_KEY }}
 jobs:
@@ -79,7 +78,7 @@ jobs:
         run: |
           git config --global user.email $GIT_NO_REPLY_EMAIL
           git config --global user.name $GIT_USERNAME
-          git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/$REPOSITORY_OWNER/$REPOSITORY_NAME.git
+          git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/$REPOSITORY_NAME.git
 
       - name: Deploy Documentation
         run: moonwave build --publish --code $SOURCE_FOLDER
