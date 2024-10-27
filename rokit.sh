@@ -2,9 +2,7 @@
 # printf "$1"
 # read -p "$2"
 # }
-cargo init
 cargo install rokit
-cargo clean
 echo "Reading rokit.toml"
 tools_bool=0
 while read line
