@@ -52,7 +52,7 @@ jobs:
             echo "No stylua changes"
           fi
 
-      - name: Install Wally Dependencies
+      - name: Install Luau Libraries
         run: |
           if [ -f "wally.toml" ]; then
             wally install
