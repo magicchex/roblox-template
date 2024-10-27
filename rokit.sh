@@ -2,6 +2,7 @@
 # printf "$1"
 # read -p "$2"
 # }
+where rokit
 cargo install rokit
 echo "Reading rokit.toml"
 tools_bool=0
