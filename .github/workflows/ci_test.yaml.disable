@@ -30,10 +30,29 @@ jobs:
       - name: Install Cargo
         uses: actions-rust-lang/setup-rust-toolchain@v1
 
-      - name: Install Rokit and its tools
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.6'
+      
+      # - name: Install Rokit and its tools via Python
+      #   run: |
+      #     chmod 555 ./install_rokit/rokit.py
+      #     python ./install_rokit/rokit.py
+
+      - name: Install Rokit
+        run: cargo install rokit --locked
+
+      - name: Configure Rokit to Path
+        run: rokit self-install
+        
+      - name: Trust Rokit tools
         run: |
-          chmod 555 ./rokit.sh
-          ./rokit.sh
+          chmod 555 ./install_rokit/rokit.sh
+          ./install_rokit/rokit.sh
+
+      - name: Install Rokit tools
+        run: rokit install --no-trust-check
       
       - name: Stylua
         run: stylua $SOURCE_FOLDER
