@@ -10,10 +10,10 @@ Packages
 # Hide env
 .env
 
-# Rojo (Roblox) default place file location
+# Roblox place files
 *.rbxlx
 *.rbxl
-
-# Roblox Studio lock files
 *.rbxlx.lock
 *.rbxl.lock
+# Rojo
+sourcemap.json
