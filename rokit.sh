@@ -2,7 +2,6 @@
 # printf "$1"
 # read -p "$2"
 # }
-cargo install rokit
 tools_bool=0
 
 while read line
@@ -20,5 +19,4 @@ do
         fi
     fi
 done < "./rokit.toml"
-rokit install
 # prompt "Done running test\n" ""
