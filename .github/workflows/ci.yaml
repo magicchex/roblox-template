@@ -35,14 +35,21 @@ jobs:
         with:
           python-version: '3.12.6'
       
-      - name: Install Rokit and its tools
-        run: |
-          chmod 555 ./rokit.py
-          python rokit.py
-      # - name: Install Rokit and its tools
+      # - name: Install Rokit and its tools via Python
       #   run: |
-      #     chmod 555 ./rokit.sh
-      #     ./rokit.sh
+      #     chmod 555 ./rokit.py
+      #     python rokit.py
+
+      - name: Install Rokit
+        run: cargo install rokit --locked
+
+      - name: Trust Rokit tools
+        run: |
+          chmod 555 ./rokit.sh
+          ./rokit.sh
+
+      - name: Install Rokit tools
+        run: rokit install
       
       - name: Stylua
         run: stylua --indent-type Tabs --quote-style ForceSingle --collapse-simple-statement Never --call-parentheses Always $SOURCE_FOLDER
