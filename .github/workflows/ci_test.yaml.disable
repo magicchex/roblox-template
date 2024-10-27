@@ -37,8 +37,8 @@ jobs:
       
       # - name: Install Rokit and its tools via Python
       #   run: |
-      #     chmod 555 ./rokit.py
-      #     python rokit.py
+      #     chmod 555 ./install_rokit/rokit.py
+      #     python ./install_rokit/rokit.py
 
       - name: Install Rokit
         run: cargo install rokit --locked
@@ -48,8 +48,8 @@ jobs:
         
       - name: Trust Rokit tools
         run: |
-          chmod 555 ./rokit.sh
-          ./rokit.sh
+          chmod 555 ./install_rokit/rokit.sh
+          ./install_rokit/rokit.sh
 
       - name: Install Rokit tools
         run: rokit install --no-trust-check
