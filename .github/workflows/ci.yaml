@@ -49,7 +49,7 @@ jobs:
           ./rokit.sh
 
       - name: Install Rokit tools
-        run: rokit install
+        run: rokit install --no-trust-check
       
       - name: Stylua
         run: stylua --indent-type Tabs --quote-style ForceSingle --collapse-simple-statement Never --call-parentheses Always $SOURCE_FOLDER
