@@ -21,12 +21,12 @@ def start_process(command: list[str], print_on=False) -> tuple[
     is_error = process.returncode > 0
     if print_on is False:
         return process, process.stderr.decode(), process.stdout.decode(), is_error
+    if len(stderr) > 0:
+        print(f'Found errors while running "{command[0]}".\n{stderr}')
+    if len(stdout) > 0:
+        print(f'"{command[0]}" has outputted the following...\n{stdout}')
     if is_error:
         print(f"{command[0]} has returned a error code of {process.returncode}")
-    if not stderr == "":
-        print(f'Found errors while running "{command[0]}".\n{stderr}')
-    if not stdout == "":
-        print(f'"{command[0]}" has outputted the following...\n{stdout}')
     return process, process.stderr.decode(), process.stdout.decode(), is_error
 
 def install_rokit():
