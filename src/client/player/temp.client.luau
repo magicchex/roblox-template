@@ -1,0 +1,1 @@
+-- Template Client Script (18)
