@@ -36,6 +36,8 @@ def install_rokit():
     if "already installed" in cargo_stderr:
         print("Rokit has already been installed. Now updating rokit.")
         start_process(["rokit", "self-update"], print_on=True)
+    else:
+        start_process(["rokit", "self-install"])
 
 def get_rokit_tools(filepath: str) -> dict[str, str]:
     """Retrieves tools from rokit.toml
@@ -70,7 +72,7 @@ def install_rokit_tools(tools: dict[str,str]):
         print(f"Trusting {tools[dict_key]}")
         start_process(["rokit", "trust", f"{tools[dict_key]}"])
     print("Installing rokit tools")
-    start_process(["rokit", "install"], print_on=True)
+    start_process(["rokit", "install", "--no-trust-check"], print_on=True)
 
 if __name__ == "__main__":
     ROKIT_TOML = os.curdir + os.sep + "rokit.toml"

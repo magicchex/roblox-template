@@ -43,6 +43,9 @@ jobs:
       - name: Install Rokit
         run: cargo install rokit --locked
 
+      - name: Configure Rokit to Path
+        run: rokit self-install
+        
       - name: Trust Rokit tools
         run: |
           chmod 555 ./rokit.sh
