@@ -2,8 +2,9 @@
 # printf "$1"
 # read -p "$2"
 # }
+# cargo install rokit --locked
+# rokit self-install
 tools_bool=0
-
 while read line
 do
     if [[ $line =~ "tools" ]]; then
@@ -16,4 +17,5 @@ do
         fi
     fi
 done < "./rokit.toml"
+# run: rokit install --no-trust-check
 # prompt "Done running test\n" ""
