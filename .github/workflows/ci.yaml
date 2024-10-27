@@ -38,7 +38,7 @@ jobs:
       - name: Install Rokit and its tools
         run: |
           chmod 555 ./rokit.py
-          py rokit.py
+          python rokit.py
       # - name: Install Rokit and its tools
       #   run: |
       #     chmod 555 ./rokit.sh
