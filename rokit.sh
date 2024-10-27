@@ -2,7 +2,7 @@
 # printf "$1"
 # read -p "$2"
 # }
-cargo install rokit --locked
+cargo install rokit --locked --force
 tools_bool=0
 while read line
 do
