@@ -2,8 +2,6 @@
 # printf "$1"
 # read -p "$2"
 # }
-rm -rf /home/runner/.cargo
-cargo clean
 cargo install rokit
 echo "Reading rokit.toml"
 tools_bool=0
