@@ -4,6 +4,7 @@
 # }
 # cargo install rokit
 curl -sSf https://raw.githubusercontent.com/rojo-rbx/rokit/main/scripts/install.sh | bash
+ls
 echo "Reading rokit.toml"
 tools_bool=0
 while read line
