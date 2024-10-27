@@ -4,6 +4,13 @@
 # Moonwave
 build
 
+# python
+scripts/python/Include
+scripts/python/Lib
+scripts/python/Scripts
+pyvenv.cfg
+logs
+__pycache__
 # Wally Dependencies
 Packages
 
