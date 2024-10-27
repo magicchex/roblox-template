@@ -8,22 +8,19 @@
         "$className": "Folder",
         "$path": "Packages/"
       },
-      "Shared": {
-        "$path": "src/shared"
-      }
+      "$path": "src/shared"
     },
 
     "ServerScriptService": {
-      "Server": {
-        "$path": "src/server"
-      }
+      "$path": "src/server"
     },
 
     "StarterPlayer": {
       "StarterPlayerScripts": {
-        "Client": {
-          "$path": "src/client"
-        }
+        "$path": "src/client/player"
+      },
+      "StarterCharacterScripts": {
+        "$path": "src/client/character"
       }
     },
 
