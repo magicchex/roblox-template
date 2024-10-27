@@ -31,7 +31,9 @@ jobs:
         uses: actions-rust-lang/setup-rust-toolchain@v1
 
       - name: Install Rokit and its tools
-        run: ./rokit.sh
+        run: |
+          chmod 555 ./rokit.sh
+          ./rokit.sh
       
       - name: Stylua
         run: stylua --indent-type Tabs --quote-style ForceSingle --collapse-simple-statement Never --call-parentheses Always $SOURCE_FOLDER
