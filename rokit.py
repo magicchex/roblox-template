@@ -37,7 +37,7 @@ def install_rokit():
         print("Rokit has already been installed. Now updating rokit.")
         start_process(["rokit", "self-update"], print_on=True)
     else:
-        start_process(["rokit", "self-install"])
+        start_process(["rokit", "self-install"], print_on=True)
 
 def get_rokit_tools(filepath: str) -> dict[str, str]:
     """Retrieves tools from rokit.toml
