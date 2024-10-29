@@ -1,0 +1,43 @@
+name: continuous integration
+
+on:
+  push:
+    branches: 
+      - master
+    paths: src/**/*.luau
+env:
+  GIT_NO_REPLY_EMAIL: actions@github.com
+  GIT_USERNAME: GitHub Actions
+  REPOSITORY_NAME: ${{ github.repository }}
+  SOURCE_FOLDER: src
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+jobs:
+  stylua:
+    permissions:
+      contents: write
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Aftman
+        uses: ok-nick/setup-aftman@v0.4.2
+      
+      - name: Install Aftman Tools
+        run: aftman install
+      
+      - name: Stylua
+        run: stylua $SOURCE_FOLDER
+
+      - name: Commit any changes made by Stylua
+        run: |
+          if [[ $(git diff) != "" ]]; then
+            git config --global user.name $GIT_USERNAME
+            git config --global user.email $GIT_NO_REPLY_EMAIL
+            git add .
+            git commit -m "Apply code formatting"
+            git push
+            echo "Stylua made changes"
+          else
+            echo "No stylua changes"
+          fi
