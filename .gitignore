@@ -4,10 +4,7 @@
 build
 
 # python
-scripts/python/Include
-scripts/python/Lib
-scripts/python/Scripts
-pyvenv.cfg
+venv
 logs
 __pycache__
 # Wally Dependencies
