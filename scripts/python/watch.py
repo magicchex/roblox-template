@@ -10,8 +10,8 @@ class RobloxLuau(LoggingEventHandler):
     def on_modified(self, event: DirModifiedEvent | FileModifiedEvent) -> None:
         if isinstance(event, DirModifiedEvent):
             return
-        log_folder = os.path.join(python_folder, "logs")
-        os.makedirs(log_folder,exist_ok=True)
+        # log_folder = os.path.join(python_folder, "logs")
+        # os.makedirs(log_folder,exist_ok=True)
 
         src_path: str = event.src_path.decode() if isinstance(event.src_path, bytes) else event.src_path
         dest_path: str = event.dest_path.decode() if isinstance(event.dest_path, bytes) else event.dest_path
