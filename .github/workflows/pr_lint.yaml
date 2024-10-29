@@ -1,23 +1,22 @@
-name: pull request linter
+name: selene
 
 on:
   pull_request:
     branches:
       - master
-      - release/*
-      - feature/*
+    paths: src/**/*.luau
 env:
   SOURCE_FOLDER: src
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
-  run-selene-linter:
+  selene:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install Cargo
-        uses: actions-rust-lang/setup-rust-toolchain@v1
-      - name: Install Selene
-        run: cargo install selene
       - name: Selene
-        run: selene $SOURCE_FOLDER
+        uses: NTBBloodbath/selene-action@v1.0.0
+        with:
+          token: $GITHUB_TOKEN
+          args: -q $SOURCE_FOLDER
+          version: 0.27.1
