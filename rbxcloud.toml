@@ -1,0 +1,20 @@
+[universe]
+id = 1234567890
+title = "Example Game"
+desc = """
+This is a description for the game
+"""
+restart = true
+
+[place.placeName1]
+id=1234567890
+desc="""
+The starting place has the same description as the universe description.
+"""
+server_size=20
+[place.placeName2]
+id=1234567890
+desc="""
+Second place description
+"""
+server_size=4
