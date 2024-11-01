@@ -79,7 +79,7 @@ jobs:
           fi
 
       - name: Deploy Place to Roblox
-        run: rojo upload --asset_id $PLACE_ID --universe_id $UNIVERSE_ID --api_key $PLACE_PUBLISHING_KEY
+        run: python ./scripts/python/rbxcloud.py $PLACE_PUBLISHING_KEY ./rbxcloud.toml
   deploy-documentation:
     permissions:
       contents: write
