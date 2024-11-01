@@ -1,3 +1,5 @@
+# DO NOT PUT YOUR API KEYS IN THIS FILE! IT WILL NOT WORK!
+
 [universe]
 id = 1234567890
 title = "Example Game"
@@ -6,15 +8,23 @@ This is a description for the game
 """
 restart = true
 
+[place]
+folderpath="apple/tree/src.rblx"
+
 [place.placeName1]
+filepath=""
 id=1234567890
+server_size=20
+version_type="published"
 desc="""
 The starting place has the same description as the universe description.
 """
-server_size=20
+
 [place.placeName2]
+filepath=""
 id=1234567890
+server_size=4
+version_type="saved"
 desc="""
 Second place description
 """
-server_size=4
