@@ -1,9 +1,15 @@
 import subprocess
+from typing import TypedDict
 
 
-def start_process(
-    command: list[str], print_on=False
-) -> tuple[subprocess.CompletedProcess, str, str, bool]:
+class StartProcessDict(TypedDict):
+    CompletedProcess: subprocess.CompletedProcess
+    stderr: str
+    stdout: str
+    has_reach_error: bool
+
+
+def start_process(command: list[str], print_on=False) -> StartProcessDict:
     """Start an subprocess with check=False and capture_output=True
 
     Args:
@@ -17,12 +23,18 @@ def start_process(
     stderr = process.stderr.decode()
     stdout = process.stderr.decode()
     is_error = process.returncode > 0
+    result = {
+        "CompletedProcess": process,
+        "stderr": stderr,
+        "stdout": stdout,
+        "has_reach_error": is_error,
+    }
     if print_on is False:
-        return process, process.stderr.decode(), process.stdout.decode(), is_error
+        return result
     if len(stderr) > 0:
         print(f'Found errors while running "{command[0]}".\n{stderr}')
     if len(stdout) > 0:
         print(f'"{command[0]}" has outputted the following...\n{stdout}')
     if is_error:
         print(f"{command[0]} has returned a error code of {process.returncode}")
-    return process, process.stderr.decode(), process.stdout.decode(), is_error
+    return result
