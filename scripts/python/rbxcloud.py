@@ -73,7 +73,9 @@ def update_universe(toml_: dict, api_key_: str) -> UniverseProcess:
 
 
 def update_place(toml_: dict, api_key_: str) -> dict[str, PlaceProcess]:
-    """Updates a place(s)' name, description, and server size
+    """Updates a place(s)' name, description, server size, and upload file to Roblox
+
+    The place name and id is required.
 
     Args:
         toml (dict): toml.load() -> dict
@@ -93,9 +95,12 @@ def update_place(toml_: dict, api_key_: str) -> dict[str, PlaceProcess]:
     universe_id = str(universe_id)
 
     place_data: dict = toml_.get("place")
+    place_folder: str = place_data.get("folderpath")
     if place_data is None:
         return result
     for place_name, place_info in place_data.items():
+        if place_name == "folderpath":
+            continue
         result[place_name] = {}
         if not isinstance(place_name, str):
             continue
@@ -106,11 +111,40 @@ def update_place(toml_: dict, api_key_: str) -> dict[str, PlaceProcess]:
         if not isinstance(pid, int):
             continue
         pid = str(pid)
+        place_file = place_info.get(
+            "filepath", os.path.join(place_folder, f"{pid}.rbxl")
+        )
+        if len(place_file) == 0:
+            place_file = os.path.join(place_folder, f"{pid}.rbxl")
+        place_version_type = place_info.get("version_type", "saved")
+        if "publish" in place_version_type:
+            place_version_type = "published"
+        else:
+            place_version_type = "saved"
+        if os.path.isfile(place_file):
+            result[place_name]["experience"] = start_process(
+                [
+                    "rbxcloud",
+                    "experience",
+                    "publish",
+                    "--filename",
+                    place_file,
+                    "--place-id",
+                    pid,
+                    "--universe-id",
+                    universe_id,
+                    "--version-type",
+                    place_version_type,
+                    "--api-key",
+                    api_key_,
+                ]
+            )
+        else:
+            result[place_name]["experience"] = {}
         pdesc = place_info.get("desc")
         server_size = place_info.get("server_size")
         if isinstance(server_size, int):
             server_size = str(server_size)
-
         result[place_name]["update_name"] = start_process(
             [
                 "rbxcloud",
@@ -127,6 +161,7 @@ def update_place(toml_: dict, api_key_: str) -> dict[str, PlaceProcess]:
                 api_key_,
             ]
         )
+
         if isinstance(pdesc, str):
             result[place_name]["update_description"] = start_process(
                 [
@@ -144,6 +179,9 @@ def update_place(toml_: dict, api_key_: str) -> dict[str, PlaceProcess]:
                     api_key_,
                 ]
             )
+        else:
+            result[place_name]["update_description"] = {}
+
         if isinstance(server_size, str):
             result[place_name]["update_server_size"] = start_process(
                 [
@@ -161,6 +199,8 @@ def update_place(toml_: dict, api_key_: str) -> dict[str, PlaceProcess]:
                     api_key_,
                 ]
             )
+        else:
+            result[place_name]["update_server_size"] = {}
     return result
 
 
@@ -187,12 +227,14 @@ if __name__ == "__main__":
         CONFIG = toml.load(f)
 
     universe_results = update_universe(CONFIG, API_KEY)
-    print(universe_results["update_name"][2])
-    print(universe_results["update_description"][2])
-    print(universe_results["restart"][2])
+    print(universe_results["update_name"]["stdout"])
+    print(universe_results["update_description"]["stdout"])
+    print(universe_results["restart"]["stdout"])
 
     place_results = update_place(CONFIG, API_KEY)
-    for _, place_name_ in enumerate(place_results):
-        print(place_results[place_name_]["update_name"][1])
-        print(place_results[place_name_]["update_description"][1])
-        print(place_results[place_name_]["update_server_size"][1])
+    print(place_results.items())
+    for place_name_, place_info_ in place_results.items():
+        print(place_info_.get("update_name").get("stderr"))
+        print(place_info_.get("update_description").get("stderr"))
+        print(place_info_.get("update_server_size").get("stderr"))
+        print(place_info_.get("experience").get("stderr"))
