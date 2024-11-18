@@ -9,7 +9,7 @@ This is a description for the game
 restart = true
 
 [place]
-folderpath="apple/tree/src.rblx"
+folderpath="places"
 
 [place.placeName1]
 filepath=""
