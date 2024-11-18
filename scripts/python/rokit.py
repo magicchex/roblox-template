@@ -7,8 +7,8 @@ from helper import start_process
 def install_rokit():
     # pylint: disable=missing-function-docstring
     print("Installing rokit via cargo")
-    _, cargo_stderr, __, ___ = start_process(["cargo", "install", "rokit", "--locked"])
-    if "already installed" in cargo_stderr:
+    result = start_process(["cargo", "install", "rokit", "--locked"])
+    if "already installed" in result.get("stderr"):
         print("Rokit has already been installed. Now updating rokit.")
         start_process(["rokit", "self-update"], print_on=True)
     else:
