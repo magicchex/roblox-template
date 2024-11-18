@@ -35,24 +35,10 @@ jobs:
         with:
           python-version: '3.12.6'
       
-      # - name: Install Rokit and its tools via Python
-      #   run: |
-      #     chmod 555 ./install_rokit/rokit.py
-      #     python ./install_rokit/rokit.py
-
-      - name: Install Rokit
-        run: cargo install rokit --locked
-
-      - name: Configure Rokit to Path
-        run: rokit self-install
-        
-      - name: Trust Rokit tools
+      - name: Install Rokit and its tools via Python
         run: |
-          chmod 555 ./install_rokit/rokit.sh
-          ./install_rokit/rokit.sh
-
-      - name: Install Rokit tools
-        run: rokit install --no-trust-check
+          chmod 555 ./scripts/python/rokit.py
+          python ./scripts/python/rokit.py
       
       - name: Stylua
         run: stylua $SOURCE_FOLDER
@@ -79,7 +65,9 @@ jobs:
           fi
 
       - name: Deploy Place to Roblox
-        run: python ./scripts/python/rbxcloud.py $PLACE_PUBLISHING_KEY ./rbxcloud.toml
+        run: |
+          chmod 555./scripts/python/rbxcloud.py
+          python ./scripts/python/rbxcloud.py $PLACE_PUBLISHING_KEY ./rbxcloud.toml
   deploy-documentation:
     permissions:
       contents: write
