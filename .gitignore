@@ -1,5 +1,3 @@
-
-
 # Moonwave
 build
 
@@ -14,6 +12,7 @@ Packages
 .env
 
 # Roblox place files
+*places
 *.rbxlx
 *.rbxl
 *.rbxlx.lock
