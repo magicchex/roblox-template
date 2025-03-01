@@ -29,7 +29,7 @@ jobs:
           version: v1.0.0 # rokit git tag
           cache: false
 
-      - name: Install Aftman Tools
+      - name: Install Rokit Tools
         run: rokit install --no-trust-check
 
       - name: Stylua
