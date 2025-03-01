@@ -26,7 +26,7 @@ jobs:
       - name: Install Rokit
         uses: CompeyDev/setup-rokit@v0.1.2
         with:
-          version: v1.0.0
+          version: v1.0.0 # rokit git tag
           cache: false
 
       - name: Install Aftman Tools
