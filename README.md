@@ -1,7 +1,6 @@
 # roblox template
 [![continuous integration](https://github.com/magicchex/roblox-template/actions/workflows/ci.yaml/badge.svg)](https://github.com/magicchex/roblox-template/actions/workflows/ci.yaml)
 
-My roblox workflow
 # Setup
 Install *(Recommended)* [Rokit](https://github.com/rojo-rbx/rokit) or [aftman](https://github.com/LPGhatguy/aftman) as your tool manager on your system.
 ### Rokit
