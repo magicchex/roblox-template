@@ -25,6 +25,13 @@
             "label": "Install moonwave",
             "type": "shell",
             "command": "npm i -g moonwave"
+        },
+        {
+            "label": "lune run rojo build",
+            "type": "shell",
+            "command": [
+                "lune run 'lune/buildPlace'"
+            ]
         }
     ]
 }
