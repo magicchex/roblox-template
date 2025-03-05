@@ -1,0 +1,42 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "rojo serve",
+            "type": "shell",
+            "command": "rojo serve"
+        },
+        {
+            "label": "rojo build place",
+            "type": "shell",
+            "command": [
+                "$path='out/';;",
+                "rojo build -o \"${path}place.rbxl\";;"
+            ]
+        },
+        {
+            "label": "lune run",
+            "type": "shell",
+            "command": "lune run ${file}"
+        },
+        {
+            "label": "Install moonwave",
+            "type": "shell",
+            "command": "npm i -g moonwave"
+        },
+        {
+            "label": "lune run rojo build",
+            "type": "shell",
+            "command": [
+                "lune run 'lune/buildPlace'"
+            ]
+        }
+    ]
+}
+/*
+assets create -t 'audio-mp3 -ogg, decal-png -jpeg, mode-fbx'
+
+
+*/

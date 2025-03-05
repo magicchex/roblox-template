@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "johnnymorganz.luau-lsp",
+        "sanaajani.taskrunnercode",
+        "formulahendry.code-runner",
+        "redhat.vscode-yaml",
+        "tamasfe.even-better-toml",
+        "johnnymorganz.stylua"
+    ]
+}

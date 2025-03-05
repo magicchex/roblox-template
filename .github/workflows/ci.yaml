@@ -2,12 +2,8 @@ name: continuous integration
 
 on:
   push:
-    branches: 
+    branches:
       - master
-      - dev
-      - dev/*
-      - release/*
-      - feature/*
     paths: src/**/*.luau
 env:
   GIT_NO_REPLY_EMAIL: actions@github.com
@@ -27,12 +23,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Aftman
-        uses: ok-nick/setup-aftman@v0.4.2
-      
-      - name: Install Aftman Tools
-        run: aftman install
-      
+      - name: Install Rokit
+        uses: CompeyDev/setup-rokit@v0.1.2
+        with:
+          version: v1.0.0 # rokit git tag
+          cache: false
+
+      - name: Install Rokit Tools
+        run: rokit install --no-trust-check
+
       - name: Stylua
         run: stylua $SOURCE_FOLDER
 
