@@ -1,0 +1,22 @@
+name: selene
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths: src/**/*.luau
+env:
+  SOURCE_FOLDER: src
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+jobs:
+  selene:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Selene
+        uses: NTBBloodbath/selene-action@v1.0.0
+        with:
+          token: $GITHUB_TOKEN
+          args: -q $SOURCE_FOLDER
+          version: 0.27.1

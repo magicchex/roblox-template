@@ -1,6 +1,13 @@
 {
-    "[luau]": {
-        "editor.defaultFormatter": "JohnnyMorganz.stylua",
-        "editor.formatOnSave": true
-    }
+  "[luau]": {
+    "editor.defaultFormatter": "JohnnyMorganz.stylua",
+    "editor.formatOnSave": true
+  },
+  "luau-lsp.require.mode": "relativeToFile",
+  "luau-lsp.require.directoryAliases": {
+    "@lune/": "~/.lune/.typedefs/0.8.9/"
+  },
+  "code-runner.executorMapByFileExtension": {
+    ".luau": "lune run $fullFileName"
+  }
 }
