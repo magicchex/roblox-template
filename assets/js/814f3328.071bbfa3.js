@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"test","permalink":"/roblox-template/blog/2024/08/31/test","unlisted":false,"date":"2024-08-31T00:00:00.000Z"}]}')}}]);
