@@ -14,9 +14,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Selene
-        uses: NTBBloodbath/selene-action@v1.0.0
+      - name: Install Rokit
+        uses: CompeyDev/setup-rokit@v0.1.2
         with:
-          token: $GITHUB_TOKEN
-          args: -q $SOURCE_FOLDER
-          version: 0.27.1
+          version: v1.0.0 # rokit git tag
+          cache: false
+
+      - name: Install Rokit Tools
+        run: rokit install --no-trust-check
+
+      - name: selene
+        run: selene $SOURCE_FOLDER

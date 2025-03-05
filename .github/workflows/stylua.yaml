@@ -17,12 +17,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Stylua
-        uses: JohnnyMorganz/stylua-action@v4
+      - name: Install Rokit
+        uses: CompeyDev/setup-rokit@v0.1.2
         with:
-            token: $GITHUB_TOKEN
-            version: 0.20.0
-            args: $SOURCE_FOLDER
+          version: v1.0.0 # rokit git tag
+          cache: false
+
+      - name: Install Rokit Tools
+        run: rokit install --no-trust-check
+      - name: stylua
+        run: stylua $SOURCE_FOLDER
       - name: Commit any changes made by Stylua
         run: |
           if [[ $(git diff) != "" ]]; then
