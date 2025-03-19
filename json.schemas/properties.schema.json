@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "The properties of the instance",
+    "properties": {
+        "Axes": {
+            "type": "array",
+            "enum": [
+                ["X","Y","Z"],
+                ["X","Y"],
+                ["Y","Z"],
+                ["X","Z"],
+                ["X"],
+                ["Y"],
+                ["Z"]
+            ]
+        },
+        "Attributes": {
+            "$comment": "TODO: attributes schema",
+            "type": "object",
+            "patternProperties": {
+                ".*": {
+                    "anyOf": [
+                        {"type": "string"},
+                        {"type": "number"}
+                    ]
+                }
+            }
+        }
+    }
+}
