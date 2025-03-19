@@ -9,5 +9,13 @@
   },
   "code-runner.executorMapByFileExtension": {
     ".luau": "lune run $fullFileName"
-  }
+  },
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "/*.model.json"
+      ],
+      "url": "./json.schemas/model.schema.json"
+    }
+  ]
 }
