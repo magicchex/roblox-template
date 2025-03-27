@@ -19,3 +19,6 @@ Packages
 *.rbxl.lock
 # Rojo
 sourcemap.json
+
+# Test files
+*.test.model.json
