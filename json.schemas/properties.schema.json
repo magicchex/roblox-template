@@ -1,10 +1,121 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "object",
     "description": "The properties of the instance",
     "properties": {
         "Axes": {
+            "$ref": "#/$defs/Axes"
+        },
+        "Attributes": {
+            "$ref": "#/$defs/Attributes"
+        },
+        "BinaryString": {
+            "$ref": "#/$defs/BinaryString"
+        },
+        "BrickColor": {
+            "$ref": "#/$defs/BrickColor"
+        },
+        "CFrame": {
+            "$ref": "#/$defs/CFrame"
+        },
+        "Color3": {
+            "$ref": "#/$defs/Color3"
+        },
+        "Color3uint8": {
+            "$ref": "#/$defs/Color3uint8"
+        },
+        "ColorSequence": {
+            "$ref": "#/$defs/ColorSequence"
+        },
+        "Content": {
+            "$ref": "#/$defs/Content"
+        },
+        "Enum": {
+            "$ref": "#/$defs/Enum"
+        },
+        "Faces": {
+            "$ref": "#/$defs/Faces"
+        },
+        "Float32": {
+            "$ref": "#/$defs/Float32"
+        },
+        "Float64": {
+            "$ref": "#/$defs/Float64"
+        },
+        "Font": {
+            "$ref": "#/$defs/Font"
+        },
+        "Int32": {
+            "$ref": "#/$defs/Int32"
+        },
+        "Int64": {
+            "$ref": "#/$defs/Int64"
+        },
+        "MaterialColors": {
+            "$ref": "#/$defs/MaterialColors"
+        },
+        "NumberRange": {
+            "$ref": "#/$defs/NumberRange"
+        },
+        "NumberSequence": {
+            "$ref": "#/$defs/NumberSequence"
+        },
+        "OptionalCoordinateFrame": {
+            "$ref": "#/$defs/OptionalCoordinateFrame"
+        },
+        "PhysicalProperties": {
+            "$ref": "#/$defs/PhysicalProperties"
+        },
+        "ProtectedString": {
+            "$ref": "#/$defs/ProtectedString"
+        },
+        "Ray": {
+            "$ref": "#/$defs/Ray"
+        },
+        "Rect": {
+            "$ref": "#/$defs/Rect"
+        },
+        "Ref": {
+            "$ref": "#/$defs/Ref"
+        },
+        "Region3": {
+            "$ref": "#/$defs/Region3"
+        },
+        "Region3int16": {
+            "$ref": "#/$defs/Region3int16"
+        },
+        "SharedString": {
+            "$ref": "#/$defs/SharedString"
+        },
+        "String": {
+            "$ref": "#/$defs/String"
+        },
+        "Tags": {
+            "$ref": "#/$defs/Tags"
+        },
+        "UDim": {
+            "$ref": "#/$defs/UDim"
+        },
+        "UDim2": {
+            "$ref": "#/$defs/UDim2"
+        },
+        "Vector2": {
+            "$ref": "#/$defs/Vector2"
+        },
+        "Vector2int16": {
+            "$ref": "#/$defs/Vector2int16"
+        },
+        "Vector3": {
+            "$ref": "#/$defs/Vector3"
+        },
+        "Vector3int16": {
+            "$ref": "#/$defs/Vector3int16"
+        }
+    },
+    "$defs": {
+        "Axes": {
             "type": "array",
+            "description": "Locks the object to move in a single axis.",
             "enum": [
                 ["X","Y","Z"],
                 ["X","Y"],
@@ -13,10 +124,12 @@
                 ["X"],
                 ["Y"],
                 ["Z"]
-            ]
+            ],
+            "default": ["X","Y","Z"]
         },
         "Attributes": {
             "$comment": "TODO: attributes schema",
+            "description": "Work in progress!",
             "type": "object",
             "patternProperties": {
                 ".*": {
@@ -26,6 +139,99 @@
                     ]
                 }
             }
+        },
+        "BinaryString": {
+            "type": "string",
+            "description": "Base64 Encoded String",
+            "default": ""
+        },
+        "BrickColor": {
+            "type": "number",
+            "description": "Default colors provided by Roblox.",
+            "minimum": 1,
+            "maximum": 1032,
+            "default": 1
+        },
+        "CFrame": {
+            "type": "object",
+            "description": "Specifies the object's position and orientation in 3D space.",
+            "properties": {
+                "position": {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "items": {
+                        "type": "number"
+                    },
+                    "default": [0.0,0.0,0.0]
+                },
+                "orientation": {
+                    "type":"array",
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "items": {
+                        "type":"array",
+                        "minItems":3,
+                        "maxItems": 3,
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "default": [[0,0,0],[0,0,0],[0,0,0]]
+                }
+            },
+            "required": ["position", "orientation"]
+        },
+        "Color3": {
+            "type": "array",
+            "description": "Customizable colors. It uses normalized values for RGB.",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+            },
+            "default": [0.5,0.5,0.5]
+        },
+        "Color3uint8": {
+            "type": "array",
+            "description": "Customizable colors. It uses ranges of 0-255 for RGB.",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 255
+            },
+            "default": [126,126,126]
+        },
+        "ColorSequence": {
+            "type": "object",
+            "description": "Gradient of colors.",
+            "properties": {
+                "keypoints": {
+                    "type": "array",
+                    "description": "Specifies the stops for each color.",
+                    "minItems": 1,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "time": {
+                                "type": "number",
+                                "description": "Must be a normalized value.",
+                                "minimum": 0,
+                                "maximum": 1
+                            },
+                            "color": {
+                                "$ref": "#/$defs/Color3"
+                            }
+                        },
+                        "required": ["time", "color"]
+                    }
+                }
+            },
+            "required": ["keypoints"]
         }
     }
 }
