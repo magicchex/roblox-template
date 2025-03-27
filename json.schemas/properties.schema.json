@@ -158,6 +158,7 @@
             "properties": {
                 "position": {
                     "type": "array",
+                    "description": "[\n\tX,\n\tY,\n\tZ\n]",
                     "minItems": 3,
                     "maxItems": 3,
                     "items": {
@@ -167,6 +168,7 @@
                 },
                 "orientation": {
                     "type":"array",
+                    "description": "[\n\t[X,Y,Z],\n\t[X,Y,Z],\n\t[X,Y,Z]\n]",
                     "minItems": 3,
                     "maxItems": 3,
                     "items": {
