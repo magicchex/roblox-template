@@ -32,6 +32,84 @@
         },
         "Enum": {
             "$ref": "#/$defs/Enum"
+        },
+        "Faces": {
+            "$ref": "#/$defs/Faces"
+        },
+        "Float32": {
+            "$ref": "#/$defs/Float32"
+        },
+        "Float64": {
+            "$ref": "#/$defs/Float64"
+        },
+        "Font": {
+            "$ref": "#/$defs/Font"
+        },
+        "Int32": {
+            "$ref": "#/$defs/Int32"
+        },
+        "Int64": {
+            "$ref": "#/$defs/Int64"
+        },
+        "MaterialColors": {
+            "$ref": "#/$defs/MaterialColors"
+        },
+        "NumberRange": {
+            "$ref": "#/$defs/NumberRange"
+        },
+        "NumberSequence": {
+            "$ref": "#/$defs/NumberSequence"
+        },
+        "OptionalCoordinateFrame": {
+            "$ref": "#/$defs/OptionalCoordinateFrame"
+        },
+        "PhysicalProperties": {
+            "$ref": "#/$defs/PhysicalProperties"
+        },
+        "ProtectedString": {
+            "$ref": "#/$defs/ProtectedString"
+        },
+        "Ray": {
+            "$ref": "#/$defs/Ray"
+        },
+        "Rect": {
+            "$ref": "#/$defs/Rect"
+        },
+        "Ref": {
+            "$ref": "#/$defs/Ref"
+        },
+        "Region3": {
+            "$ref": "#/$defs/Region3"
+        },
+        "Region3int16": {
+            "$ref": "#/$defs/Region3int16"
+        },
+        "SharedString": {
+            "$ref": "#/$defs/SharedString"
+        },
+        "String": {
+            "$ref": "#/$defs/String"
+        },
+        "Tags": {
+            "$ref": "#/$defs/Tags"
+        },
+        "UDim": {
+            "$ref": "#/$defs/UDim"
+        },
+        "UDim2": {
+            "$ref": "#/$defs/UDim2"
+        },
+        "Vector2": {
+            "$ref": "#/$defs/Vector2"
+        },
+        "Vector2int16": {
+            "$ref": "#/$defs/Vector2int16"
+        },
+        "Vector3": {
+            "$ref": "#/$defs/Vector3"
+        },
+        "Vector3int16": {
+            "$ref": "#/$defs/Vector3int16"
         }
     },
     "$defs": {
