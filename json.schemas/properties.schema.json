@@ -270,6 +270,10 @@
                     "description": "Files uploaded through StudioService:PromptImportFile."
                 }
             ]
+        },
+        "Enum": {
+            "type": "integer",
+            "minimum": 0
         }
     }
 }
