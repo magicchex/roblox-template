@@ -1,0 +1,34 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CFrame",
+    "description": "Specifies the object's position and orientation in 3D space",
+    "type": "object",
+    "properties": {
+        "position": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "default": [0,0,0],
+            "items": {
+                "type": "number"
+            },
+            "description": "[\n\tX,\n\tY,\n\tZ\n]"
+        },
+        "orientation": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "default": [[0,0,0],[0,0,0],[0,0,0]],
+            "items": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                    "type": "number"
+                }
+            },
+            "description": "[\n\t[X,Y,Z],\n\t[X,Y,Z],\n\t[X,Y,Z]\n]"
+        }
+    },
+    "required": ["position", "orientation"]
+}

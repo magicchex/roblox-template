@@ -4,115 +4,115 @@
     "description": "The properties of the instance",
     "properties": {
         "Axes": {
-            "$ref": "#/$defs/Axes"
+            "$ref": "./datatypes/Axes.schema.json"
         },
         "Attributes": {
-            "$ref": "#/$defs/Attributes"
+            "$ref": "./Attributes.schema.json"
         },
         "BinaryString": {
-            "$ref": "#/$defs/BinaryString"
+            "$ref": "./datatypes/BinaryString.schema.json"
         },
         "Bool": {
-            "$ref": "#/$defs/Bool"
+            "$ref": "./datatypes/Bool.schema.json"
         },
         "BrickColor": {
-            "$ref": "#/$defs/BrickColor"
+            "$ref": "./datatypes/BrickColor.schema.json"
         },
         "CFrame": {
-            "$ref": "#/$defs/CFrame"
+            "$ref": "./datatypes/CFrame.schema.json"
         },
         "Color3": {
-            "$ref": "#/$defs/Color3"
+            "$ref": "./datatypes/Color3.schema.json"
         },
         "Color3uint8": {
-            "$ref": "#/$defs/Color3uint8"
+            "$ref": "./datatypes/Color3uint8.schema.json"
         },
         "ColorSequence": {
-            "$ref": "#/$defs/ColorSequence"
+            "$ref": "./datatypes/ColorSequence.schema.json"
         },
         "Content": {
-            "$ref": "#/$defs/Content"
+            "$ref": "./datatypes/Content.schema.json"
         },
         "Enum": {
-            "$ref": "#/$defs/Enum"
+            "$ref": "./datatypes/Enum.schema.json"
         },
         "Faces": {
-            "$ref": "#/$defs/Faces"
+            "$ref": "./datatypes/Faces.schema.json"
         },
         "Float32": {
-            "$ref": "#/$defs/Float32"
+            "$ref": "./datatypes/Float32.schema.json"
         },
         "Float64": {
-            "$ref": "#/$defs/Float64"
+            "$ref": "./datatypes/Float64.schema.json"
         },
         "Font": {
-            "$ref": "#/$defs/Font"
+            "$ref": "./datatypes/Font.schema.json"
         },
         "Int32": {
-            "$ref": "#/$defs/Int32"
+            "$ref": "./datatypes/Int32.schema.json"
         },
         "Int64": {
-            "$ref": "#/$defs/Int64"
+            "$ref": "./datatypes/Int64.schema.json"
         },
         "MaterialColors": {
-            "$ref": "#/$defs/MaterialColors"
+            "$ref": "./datatypes/MaterialColors.schema.json"
         },
         "NumberRange": {
-            "$ref": "#/$defs/NumberRange"
+            "$ref": "./datatypes/NumberRange.schema.json"
         },
         "NumberSequence": {
-            "$ref": "#/$defs/NumberSequence"
+            "$ref": "./datatypes/NumberSequence.schema.json"
         },
         "OptionalCoordinateFrame": {
-            "$ref": "#/$defs/OptionalCoordinateFrame"
+            "$ref": "./datatypes/OptionalCoordinateFrame.schema.json"
         },
         "PhysicalProperties": {
-            "$ref": "#/$defs/PhysicalProperties"
+            "$ref": "./datatypes/PhysicalProperties.schema.json"
         },
         "ProtectedString": {
-            "$ref": "#/$defs/ProtectedString"
+            "$ref": "./datatypes/ProtectedString.schema.json"
         },
         "Ray": {
-            "$ref": "#/$defs/Ray"
+            "$ref": "./datatypes/Ray.schema.json"
         },
         "Rect": {
-            "$ref": "#/$defs/Rect"
+            "$ref": "./datatypes/Rect.schema.json"
         },
         "Ref": {
-            "$ref": "#/$defs/Ref"
+            "$ref": "./datatypes/Ref.schema.json"
         },
         "Region3": {
-            "$ref": "#/$defs/Region3"
+            "$ref": "./datatypes/Region3.schema.json"
         },
         "Region3int16": {
-            "$ref": "#/$defs/Region3int16"
+            "$ref": "./datatypes/Region3int16.schema.json"
         },
         "SharedString": {
-            "$ref": "#/$defs/SharedString"
+            "$ref": "./datatypes/SharedString.schema.json"
         },
         "String": {
-            "$ref": "#/$defs/String"
+            "$ref": "./datatypes/String.schema.json"
         },
         "Tags": {
-            "$ref": "#/$defs/Tags"
+            "$ref": "./datatypes/Tags.schema.json"
         },
         "UDim": {
-            "$ref": "#/$defs/UDim"
+            "$ref": "./datatypes/UDim.schema.json"
         },
         "UDim2": {
-            "$ref": "#/$defs/UDim2"
+            "$ref": "./datatypes/UDim2.schema.json"
         },
         "Vector2": {
-            "$ref": "#/$defs/Vector2"
+            "$ref": "./datatypes/Vector2.schema.json"
         },
         "Vector2int16": {
-            "$ref": "#/$defs/Vector2int16"
+            "$ref": "./datatypes/Vector2int16.schema.json"
         },
         "Vector3": {
-            "$ref": "#/$defs/Vector3"
+            "$ref": "./datatypes/Vector3.schema.json"
         },
         "Vector3int16": {
-            "$ref": "#/$defs/Vector3int16"
+            "$ref": "./datatypes/Vector3int16.schema.json"
         }
     },
     "$defs": {

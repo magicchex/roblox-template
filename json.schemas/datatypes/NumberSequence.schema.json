@@ -1,0 +1,38 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "NumberSequence",
+    "description": "A change in a value over a period of time",
+    "type": "object",
+    "properties": {
+        "keypoints": {
+            "type": "array",
+            "description": "Specifies the stop of each number in a point of time",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "time": {
+                        "type": "number",
+                        "description": "Must be a normalized value",
+                        "minimum": 0,
+                        "maximum": 1
+                    },
+                    "value": {
+                        "type": "number",
+                        "description": "Must be a normalized value",
+                        "minimum": 0,
+                        "maximum": 1
+                    },
+                    "envelope": {
+                        "type": "number",
+                        "description": "Must be a normalized value",
+                        "minimum": 0,
+                        "maximum": 1
+                    }
+                },
+                "required": ["time","value","envelope"]
+            }
+        }
+    },
+    "required": ["keypoints"]
+}

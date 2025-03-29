@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Font",
+    "description": "A Roblox-supported font",
+    "properties": {
+        "family": {
+            "$ref": "./Content.schema.json"
+        },
+        "weight": {
+            "enum": [
+                "Thin", "ExtraLight", "Light",
+                "Regular", "Medium", "SemiBold",
+                "Bold", "ExtraBold", "Heavy"
+            ]
+        },
+        "style": {
+            "enum": [
+                "Normal",
+                "Italic"
+            ]
+        }
+    },
+    "required": ["family", "weight", "style"]
+}

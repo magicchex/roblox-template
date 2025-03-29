@@ -1,0 +1,10 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Vector2int16",
+    "description": "A pair of X and Y value. It's a signed 16-bit integer.",
+    "minItems": 2,
+    "maxItems": 2,
+    "items": {
+        "type": "integer"
+    }
+}

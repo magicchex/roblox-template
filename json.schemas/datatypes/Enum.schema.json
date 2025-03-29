@@ -1,0 +1,7 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Enum",
+    "description": "The Enum.Type's number",
+    "type": "integer",
+    "minimum": 0
+}

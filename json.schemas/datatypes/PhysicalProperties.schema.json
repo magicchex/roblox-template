@@ -1,0 +1,46 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PhysicalProperties",
+    "description": "Specifies the physics of the model",
+    "oneOf": [
+        {
+            "enum": ["Default"]
+        },
+        {
+            "type": "object",
+            "properties": {
+                "density": {
+                    "type": "number",
+                    "description": "Must be in range of 0.0001 to 100",
+                    "minimum": 0.0001,
+                    "maximum": 100
+                },
+                "friction": {
+                    "type": "number",
+                    "description": "Must be in range of 0 to 2",
+                    "minimum": 0,
+                    "maximum": 2
+                },
+                "elasticity": {
+                    "type": "number",
+                    "description": "Must be a normalized value",
+                    "minimum": 0,
+                    "maximum": 1
+                },
+                "frictionWeight": {
+                    "type": "number",
+                    "description": "Must be in range of 0 to 100",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "elasticityWeight": {
+                    "type": "number",
+                    "description": "Must be in range of 0 to 100",
+                    "minimum": 0,
+                    "maximum": 100
+                }
+            },
+            "required": ["density", "friction","elasticity","frictionWeight","elasticityWeight"]
+        }
+    ]
+}
