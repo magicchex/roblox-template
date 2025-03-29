@@ -370,31 +370,49 @@
             "oneOf": [
                 {
                     "pattern": "rbxassetid:\/{2}[0-9]+",
-                    "default": "rbxassetid://00000000000"
+                    "examples": [
+                        "rbxassetid://00000000000",
+                        "rbxassetid://"
+                        ]
                 },
                 {
                     "pattern": "rbxasset:\/{2}([A-Za-z0-9\\-\\_]+\/|[A-Za-z0-9\\-\\_]+\\.)*([A-Za-z0-9\\-\\_]+\\.[A-Za-z0-9]+)(?!.*\/+|.*\\.+)",
-                    "default": "rbxasset://folder-name/file_name.png",
+                    "examples": [
+                        "rbxasset://folder-name/file_name.png",
+                        "rbxasset://"
+                    ],
                     "description": "Roblox Content Folder"
                 },
                 {
                     "pattern": "rbxthumb:\/{2}type=[A-Za-z]+&id=[0-9]+&w=[0-9]+&h=[0-9]+",
-                    "default": "rbxthumb://type=asset&id=00000000&w=00&h=00",
+                    "examples": [
+                        "rbxthumb://type=asset&id=00000000&w=00&h=00",
+                        "rbxthumb://"
+                        ],
                     "description": "Roblox Thumbnails"
                 },
                 {
                     "pattern": "rbxgameasset:\/{2}(|([A-Za-z0-9])+\/)+([A-Za-z0-9])+",
-                    "default": "rbxgameasset://folderName/fileName",
+                    "examples": [
+                        "rbxgameasset://folderName/fileName",
+                        "rbxgameasset://"
+                        ],
                     "description": "Asset Manager"
                 },
                 {
                     "pattern": "https?:\/{2}(w{3}|[A-Za-z]*)\\.roblox\\.com[A-Za-z\\?\/=0-9]+",
-                    "default": "https://create.roblox.com/",
+                    "examples": [
+                        "https://create.roblox.com/",
+                        "https://"
+                        ],
                     "description": "Only supports Roblox-approved domains."
                 },
                 {
                     "pattern": "rbxtemp:\/{2}[0-9]+",
-                    "default": "rbxtemp://00",
+                    "examples": [
+                        "rbxtemp://00",
+                        "rbxtemp://"
+                        ],
                     "description": "Files uploaded through StudioService:PromptImportFile."
                 }
             ]
