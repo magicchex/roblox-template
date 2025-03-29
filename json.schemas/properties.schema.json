@@ -273,6 +273,17 @@
         "Enum": {
             "type": "integer",
             "minimum": 0
+        },
+        "Faces": {
+            "type": "array",
+            "items": {
+                "enum": [
+                    "Right", "Top", "Back", "Left", "Bottom", "Front"
+                ]
+            },
+            "minItems": 1,
+            "maxItems": 6,
+            "uniqueItems": true
         }
     }
 }
