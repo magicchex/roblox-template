@@ -138,111 +138,128 @@
             "patternProperties": {
                 ".*": {
                     "type": "object",
-                    "anyOf": [
+                    "minProperties": 1,
+                    "maxProperties": 1,
+                    "oneOf": [
                         {
                             "properties": {
                                 "Bool": {
                                     "$ref": "#/$defs/Bool"
                                 }
-                            }
+                            },
+                            "required": ["Bool"]
                         },
                         {
                             "properties": {
                                 "BrickColor": {
                                     "$ref": "#/$defs/BrickColor"
                                 }
-                            }
+                            },
+                            "required": ["BrickColor"]
                         },
                         {
                             "properties": {
                                 "CFrame": {
                                     "$ref": "#/$defs/CFrame"
                                 }
-                            }
+                            },
+                            "required": ["CFrame"]
                         },
                         {
                             "properties": {
                                 "Color3": {
                                     "$ref": "#/$defs/Color3"
                                 }
-                            }
+                            },
+                            "required": ["Color3"]
                         },
                         {
                             "properties": {
                                 "ColorSequence": {
                                     "$ref": "#/$defs/ColorSequence"
                                 }
-                            }
+                            },
+                            "required": ["ColorSequence"]
                         },
                         {
                             "properties": {
                                 "Float64": {
                                     "$ref": "#/$defs/Float64"
                                 }
-                            }
+                            },
+                            "required": ["Float64"]
                         },
                         {
                             "properties": {
                                 "Font": {
                                     "$ref": "#/$defs/Font"
                                 }
-                            }
+                            },
+                            "required": ["Font"]
                         },
                         {
                             "properties": {
                                 "NumberRange": {
                                     "$ref": "#/$defs/NumberRange"
                                 }
-                            }
+                            },
+                            "required": ["NumberRange"]
                         },
                         {
                             "properties": {
                                 "NumberSequence": {
                                     "$ref": "#/$defs/NumberSequence"
                                 }
-                            }
+                            },
+                            "required": ["NumberSequence"]
                         },
                         {
                             "properties": {
                                 "Rect": {
                                     "$ref": "#/$defs/Rect"
                                 }
-                            }
+                            },
+                            "required": ["Rect"]
                         },
                         {
                             "properties": {
                                 "String": {
                                     "$ref": "#/$defs/String"
                                 }
-                            }
+                            },
+                            "required": ["Rect"]
                         },
                         {
                             "properties": {
                                 "UDim": {
                                     "$ref": "#/$defs/UDim"
                                 }
-                            }
+                            },
+                            "required": ["UDim"]
                         },
                         {
                             "properties": {
                                 "UDim2": {
                                     "$ref": "#/$defs/UDim2"
                                 }
-                            }
+                            },
+                            "required": ["UDim2"]
                         },
                         {
                             "properties": {
                                 "Vector2": {
                                     "$ref": "#/$defs/Vector2"
                                 }
-                            }
+                            },
+                            "required": ["Vector2"]
                         },
                         {
                             "properties": {
                                 "Vector3": {
                                     "$ref": "#/$defs/Vector3"
                                 }
-                            }
+                            },
+                            "required": ["Vector3"]
                         }
                     ]
                 }
