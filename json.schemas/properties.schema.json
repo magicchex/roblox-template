@@ -312,6 +312,15 @@
         },
         "Int64": {
             "type": "integer"
+        },
+        "MaterialColors": {
+            "type": "object",
+            "$comment": "TODO: Add materials enum",
+            "properties": {
+                "Grass": {
+                    "$ref": "#/$defs/Color3uint8"
+                }
+            }
         }
     }
 }
