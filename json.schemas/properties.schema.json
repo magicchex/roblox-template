@@ -284,6 +284,34 @@
             "minItems": 1,
             "maxItems": 6,
             "uniqueItems": true
+        },
+        "Float32": {
+            "type": "number"
+        },
+        "Float64": {
+            "type": "number"
+        },
+        "Font": {
+            "$comment": "TODO: Add enums",
+            "type": "object",
+            "properties": {
+                "family": {
+                    "type": "string"
+                },
+                "weight": {
+                    "type": "string"
+                },
+                "style": {
+                    "type": "string"
+                }
+            },
+            "required": ["family", "weight", "style"]
+        },
+        "Int32": {
+            "type": "integer"
+        },
+        "Int64": {
+            "type": "integer"
         }
     }
 }
