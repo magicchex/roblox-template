@@ -12,6 +12,9 @@
         "BinaryString": {
             "$ref": "#/$defs/BinaryString"
         },
+        "Bool": {
+            "$ref": "#/$defs/Bool"
+        },
         "BrickColor": {
             "$ref": "#/$defs/BrickColor"
         },
@@ -128,14 +131,119 @@
             "default": ["X","Y","Z"]
         },
         "Attributes": {
-            "$comment": "TODO: attributes schema",
-            "description": "Work in progress!",
+            "description": "An instance variable that can be applied to the model.",
             "type": "object",
+            "minProperties": 1,
+            "default": {"attributeName":{}},
             "patternProperties": {
                 ".*": {
+                    "type": "object",
                     "anyOf": [
-                        {"type": "string"},
-                        {"type": "number"}
+                        {
+                            "properties": {
+                                "Bool": {
+                                    "$ref": "#/$defs/Bool"
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "BrickColor": {
+                                    "$ref": "#/$defs/BrickColor"
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "CFrame": {
+                                    "$ref": "#/$defs/CFrame"
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "Color3": {
+                                    "$ref": "#/$defs/Color3"
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "ColorSequence": {
+                                    "$ref": "#/$defs/ColorSequence"
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "Float64": {
+                                    "$ref": "#/$defs/Float64"
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "Font": {
+                                    "$ref": "#/$defs/Font"
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "NumberRange": {
+                                    "$ref": "#/$defs/NumberRange"
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "NumberSequence": {
+                                    "$ref": "#/$defs/NumberSequence"
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "Rect": {
+                                    "$ref": "#/$defs/Rect"
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "String": {
+                                    "$ref": "#/$defs/String"
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "UDim": {
+                                    "$ref": "#/$defs/UDim"
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "UDim2": {
+                                    "$ref": "#/$defs/UDim2"
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "Vector2": {
+                                    "$ref": "#/$defs/Vector2"
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "Vector3": {
+                                    "$ref": "#/$defs/Vector3"
+                                }
+                            }
+                        }
                     ]
                 }
             }
@@ -144,6 +252,10 @@
             "type": "string",
             "description": "Base64 Encoded String",
             "default": ""
+        },
+        "Bool": {
+            "type": "boolean",
+            "description": "Boolean"
         },
         "BrickColor": {
             "type": "number",
@@ -272,10 +384,12 @@
         },
         "Enum": {
             "type": "integer",
+            "description": "The enum number",
             "minimum": 0
         },
         "Faces": {
             "type": "array",
+            "description": "The sides of a model.",
             "items": {
                 "enum": [
                     "Right", "Top", "Back", "Left", "Bottom", "Front"
@@ -286,14 +400,17 @@
             "uniqueItems": true
         },
         "Float32": {
-            "type": "number"
+            "type": "number",
+            "description": "Float32"
         },
         "Float64": {
-            "type": "number"
+            "type": "number",
+            "description": "Float64"
         },
         "Font": {
             "$comment": "TODO: Add enums",
             "type": "object",
+            "description": "A Roblox-supported font",
             "properties": {
                 "family": {
                     "type": "string"
@@ -308,13 +425,16 @@
             "required": ["family", "weight", "style"]
         },
         "Int32": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Int32"
         },
         "Int64": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Int64"
         },
         "MaterialColors": {
             "type": "object",
+            "description": "The texture and its color on Roblox meshes",
             "$comment": "TODO: Add materials enum",
             "properties": {
                 "Grass": {
@@ -324,6 +444,7 @@
         },
         "NumberRange": {
             "type": "array",
+            "description": "The minimum value to the maximum value allowed",
             "minItems": 2,
             "maxItems": 2,
             "items": {
@@ -332,15 +453,23 @@
         },
         "NumberSequence": {
             "type": "object",
+            "description": "A timeline of numbers changing until the final point in time",
             "properties": {
                 "keypoints": {
                     "type": "array",
+                    "description": "Specifies the stop of each number",
                     "minItems": 1,
                     "items": {
                         "properties": {
-                            "time": "number",
-                            "value": "number",
-                            "envelope": "number"
+                            "time": {
+                                "type": "number"
+                            },
+                            "value": {
+                                "type":"number"
+                            },
+                            "envelope": {
+                                "type": "number"
+                            }
                         },
                         "required": ["time","value","envelope"]
                     }
@@ -351,6 +480,162 @@
         "OptionalCoordinateFrame": {
             "type": "null",
             "description": "WIP"
+        },
+        "PhysicalProperties": {
+            "description": "Specifies the physics of the model",
+            "oneOf": [
+                {
+                    "type": "string",
+                    "enum": ["Default"],
+                    "default": "Default"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "density": {
+                            "type": "number"
+                        },
+                        "friction": {
+                            "type": "number"
+                        },
+                        "elasticity": {
+                            "type": "number"
+                        },
+                        "frictionWeight": {
+                            "type": "number"
+                        },
+                        "elasticityWeight": {
+                            "type": "number"
+                        }
+                    },
+                    "required": ["density","friction","elasticity","frictionWeight","elasticityWeight"]
+                }
+            ]
+        },
+        "ProtectedString": {
+            "description": "A lua code formatted as a string",
+            "type": "string"
+        },
+        "Ray": {
+            "description": "A sort of 3D pointer similar to vectors on a 2D plane",
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "origin": {
+                            "$ref": "#/$defs/Vector3"
+                        },
+                        "direction": {
+                            "$ref": "#/$defs/Vector3"
+                        }
+                    },
+                    "required": ["origin", "direction"]
+                },
+                {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "items": {
+                        "$ref": "#/$defs/Vector3"
+                    }
+                }
+            ]
+        },
+        "Rect": {
+            "type": "array",
+            "description": "Represents a rectangle on a 2D plane",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+                "$ref": "#/$defs/Vector2"
+            }
+        },
+        "Ref": {
+            "type": "null",
+            "description": "WIP"
+        },
+        "Region3": {
+            "type": "null",
+            "description": "WIP"
+        },
+        "Region3int16": {
+            "type": "null",
+            "description": "WIP"
+        },
+        "SharedString": {
+            "type": "null",
+            "description": "WIP"
+        },
+        "String": {
+            "type": "string",
+            "description": "String"
+        },
+        "Tags": {
+            "type": "array",
+            "description": "Applies unique identifiers to models",
+            "minItems": 1,
+            "items": {
+                "type": "string"
+            }
+        },
+        "UDim": {
+            "type": "array",
+            "description": "The scale of the 2D element and its offset",
+            "minItems": 2,
+            "maxItems": 2,
+            "prefixItems": [
+                {
+                    "type": "number"
+                },
+                {
+                    "type": "integer"
+                }
+            ]
+        },
+        "UDim2": {
+            "type": "array",
+            "description": "Specifies the X or width and the Y or height of a 2D element",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+                "$ref": "#/$defs/UDim"
+            }
+        },
+        "Vector2": {
+            "type": "array",
+            "description": "Specifies an X and Y value",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+                "type": "number"
+            }
+        },
+        "Vector2int16": {
+            "type": "array",
+            "description": "Specifies an X and Y value. It is a signed 16-bit integer.",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+                "type": "integer"
+            }
+        },
+        "Vector3": {
+            "type": "array",
+            "description": "Specifies an X, Y, and Z value",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+                "type": "number"
+            }
+        },
+        "Vector3int16": {
+            "type": "array",
+            "description": "Specifies an X, Y, and Z value. It is a signed 16-bit integer.",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+                "type": "integer"
+            }
         }
     }
 }
