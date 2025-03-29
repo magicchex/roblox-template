@@ -347,7 +347,10 @@
                 }
             },
             "required": ["keypoints"]
+        },
+        "OptionalCoordinateFrame": {
+            "type": "null",
+            "description": "WIP"
         }
-
     }
 }
