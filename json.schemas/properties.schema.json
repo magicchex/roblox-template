@@ -321,6 +321,33 @@
                     "$ref": "#/$defs/Color3uint8"
                 }
             }
+        },
+        "NumberRange": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+                "type": "number"
+            }
+        },
+        "NumberSequence": {
+            "type": "object",
+            "properties": {
+                "keypoints": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "properties": {
+                            "time": "number",
+                            "value": "number",
+                            "envelope": "number"
+                        },
+                        "required": ["time","value","envelope"]
+                    }
+                }
+            },
+            "required": ["keypoints"]
         }
+
     }
 }
