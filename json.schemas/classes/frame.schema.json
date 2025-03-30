@@ -1,0 +1,72 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Frame",
+    "description": "A 2D element that has a background color.",
+    "type": "object",
+    "properties": {
+        "ClassName": {"const": "Frame"},
+        "Name": {"type": "string"},
+        "Properties": {
+            "type": "object",
+            "properties": {
+                "Style": {
+                    "oneOf": [
+                        { "$ref": "../datatypes/Enum.schema.json" },
+                        { "$ref": "../datatypes/enum/FrameStyle.schema.json#/definitions/Enum" }
+                    ]
+                },
+                "Active": { "$ref": "../datatypes/Bool.schema.json"},
+                "AnchorPoint": { "$ref": "../datatypes/Vector2.schema.json"},
+                "AutomaticSize": {
+                    "oneOf": [
+                        {"$ref": "../datatypes/Enum.schema.json" },
+                        {"$ref": "../datatypes/enum/AutomaticSize.schema.json#/definitions/Enum" }
+                    ]
+                },
+                "BackgroundColor3": { "$ref": "../datatypes/Color3.schema.json"},
+                "BackgroundTransparency": { "$ref": "../datatypes/number_types/normalized.schema.json"},
+                "BorderColor3": { "$ref": "../datatypes/Color3.schema.json" },
+                "BorderMode": {
+                    "oneOf": [
+                        { "$ref": "../datatypes/Enum.schema.json" },
+                        { "$ref": "../datatypes/enum/BorderMode.sche,a.json#/definitions/Enum" }
+                    ]
+                },
+                "BorderSizePixel": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 100,
+                    "default": 1
+                },
+                "ClipsDescendants": { "$ref": "../datatypes/Bool.schema.json" },
+                "GuiState": {
+                    "oneOf": [
+                        { "$ref": "../datatypes/Enum.schema.json" },
+                        { "$ref": "../datatypes/enum/GuiState.schema.json" }
+                    ]
+                },
+                "Interactable": { "$ref": "../datatypes/Bool.schema.json"},
+                "LayoutOrder": { "$ref": "../datatypes/number_types/intMinMax.schema.json" },
+                "Position": { "$ref": "../datatypes/UDim2.schema.json" },
+                "Rotation": {
+                    "type": "number",
+                    "minimum": -180,
+                    "maximum": 180,
+                    "default": 0
+                },
+                "Selectable": { "$ref": "../datatypes/Bool.schema.json" },
+                "SelectionOrder": { "$ref": "../datatypes/number_types/intMinMax.schema.json" },
+                "Size": { "$ref": "../datatypes/UDim2.schema.json"},
+                "SizeConstraint": {
+                    "oneOf": [
+                        { "$ref": "../datatypes/Enum.schema.json" },
+                        { "$ref": "../datatypes/enum/SizeConstraint.schema.json#/definitions/Enum" }
+                    ]
+                },
+                "Visible": { "$ref": "../datatypes/Bool.schema.json"},
+                "ZIndex": { "$ref": "../datatypes/number_types/intMinMax.schema.json" }
+                }
+            }
+    },
+    "required": ["ClassName"]
+}
