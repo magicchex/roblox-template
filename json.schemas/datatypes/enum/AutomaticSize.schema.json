@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "AutomaticSize",
+    "description": "AutomaticSize",
+    "type": "object",
+    "properties": {
+    "AutomaticSize": { "$ref": "#/definitions/Enum" }
+    },
+    "definitions": {
+        "Enum": {
+            "enum": [
+            "None",
+            "X",
+            "Y",
+            "XY"
+            ]
+        }
+    }
+}
