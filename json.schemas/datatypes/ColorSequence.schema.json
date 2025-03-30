@@ -4,26 +4,32 @@
     "description": "Color Gradient",
     "type": "object",
     "properties": {
-        "keypoints": {
-            "description": "Specifies the stop for each color",
-            "type": "array",
-            "minItems": 1,
-            "items": {
-                "type": "object",
-                "properties": {
-                    "time": {
-                        "description": "Must be a normalized value.",
-                        "type": "number",
-                        "minimum": 0,
-                        "maximum": 1
-                    },
-                    "color": {
-                        "$ref": "./Color3.schema.json"
+        "ColorSequence": {
+            "type": "object",
+            "properties": {
+                "keypoints": {
+                    "description": "Specifies the stop for each color",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "time": {
+                                "description": "Must be a normalized value.",
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                            },
+                            "color": {
+                                "$ref": "./Color3.schema.json"
+                            }
+                        },
+                        "required": ["time", "color"]
                     }
-                },
-                "required": ["time", "color"]
+                }
+            },
+            "required": ["keypoints"]
             }
-        }
-    },
-    "required": ["keypoints"]
+        },
+    "required": ["ColorSequence"]
 }

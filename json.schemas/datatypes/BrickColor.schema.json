@@ -2,8 +2,14 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "BrickColor",
     "description": "Default colors provided by Roblox",
-    "type": "number",
-    "minimum": 1,
-    "maximum": 1032,
-    "default": 1
+    "type": "object",
+    "properties": {
+        "BrickColor": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 1032,
+            "default": 1
+        }
+    },
+    "required": ["BrickColor"]
 }

@@ -2,5 +2,11 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "BinaryString",
     "description": "Base64 Encoded BinaryString",
-    "type": "string"
+    "type": "object",
+    "properties": {
+        "BinaryString": {
+            "type": "string"
+        }
+    },
+    "required": ["BinaryString"]
 }

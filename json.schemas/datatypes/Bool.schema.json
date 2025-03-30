@@ -2,5 +2,14 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "Bool",
     "description": "Boolean",
-    "type":"boolean"
+    "oneOf": [
+        {"type": "boolean"},
+        {
+            "type": "object",
+            "properties": {
+                "Bool": {"type": "boolean"}
+            },
+            "required": ["Bool"]
+        }
+    ]
 }

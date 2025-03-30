@@ -1,7 +1,16 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "Enum",
-    "description": "The Enum.Type's number",
-    "type": "integer",
-    "minimum": 0
+    "description": "Enum integer",
+    "type": "object",
+    "minProperties": 1,
+    "maxProperties": 1,
+    "properties": {
+        "Enum": {
+            "description": "Define by Enum integer",
+            "type": "integer",
+            "minimum": 0
+        }
+    },
+    "required": ["Enum"]
 }
