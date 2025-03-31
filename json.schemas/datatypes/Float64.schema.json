@@ -3,5 +3,16 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "Float64",
     "description": "Float64",
-    "type": "number"
+    "oneOf": [
+        { "type": "number" },
+        {
+            "type": "object",
+            "properties": {
+                "Float64": {
+                    "type": "number"
+                }
+            },
+            "required": ["Float64"]
+        }
+    ]
 }

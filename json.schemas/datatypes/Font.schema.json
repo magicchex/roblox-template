@@ -2,23 +2,38 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "Font",
     "description": "A Roblox-supported font",
-    "properties": {
-        "family": {
-            "$ref": "./Content.schema.json"
-        },
-        "weight": {
-            "enum": [
-                "Thin", "ExtraLight", "Light",
-                "Regular", "Medium", "SemiBold",
-                "Bold", "ExtraBold", "Heavy"
-            ]
-        },
-        "style": {
-            "enum": [
-                "Normal",
-                "Italic"
-            ]
+    "oneOf": [
+        { "$ref": "#/definitions/Font" },
+        {
+            "type": "object",
+            "properties": {
+                "Font": { "$ref": "#/definitions/Font" }
+            },
+            "required": ["Font"]
         }
-    },
-    "required": ["family", "weight", "style"]
+    ],
+    "definitions": {
+        "Font": {
+            "type": "object",
+            "properties": {
+                "family": {
+                    "$ref": "./Content.schema.json"
+                },
+                "weight": {
+                    "enum": [
+                        "Thin", "ExtraLight", "Light",
+                        "Regular", "Medium", "SemiBold",
+                        "Bold", "ExtraBold", "Heavy"
+                    ]
+                },
+                "style": {
+                    "enum": [
+                        "Normal",
+                        "Italic"
+                    ]
+                }
+            },
+            "required": ["family", "weight", "style"]
+        }
+    }
 }

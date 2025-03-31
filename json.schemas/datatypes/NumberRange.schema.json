@@ -2,9 +2,15 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "NumberRange",
     "description": "The minimum value to the maximum value allowed",
-    "minItems": 2,
-    "maxItems": 2,
-    "items": {
-        "type": "number"
-    }
+    "type": "object",
+    "properties": {
+        "NumberRange": {
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+                "type": "number"
+            }
+        }
+    },
+    "required": ["NumberRange"]
 }

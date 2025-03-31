@@ -4,35 +4,26 @@
     "description": "A change in a value over a period of time",
     "type": "object",
     "properties": {
-        "keypoints": {
-            "type": "array",
-            "description": "Specifies the stop of each number in a point of time",
-            "minItems": 1,
-            "items": {
-                "type": "object",
-                "properties": {
-                    "time": {
-                        "type": "number",
-                        "description": "Must be a normalized value",
-                        "minimum": 0,
-                        "maximum": 1
-                    },
-                    "value": {
-                        "type": "number",
-                        "description": "Must be a normalized value",
-                        "minimum": 0,
-                        "maximum": 1
-                    },
-                    "envelope": {
-                        "type": "number",
-                        "description": "Must be a normalized value",
-                        "minimum": 0,
-                        "maximum": 1
+        "NumberSequence": {
+            "type": "object",
+            "properties": {
+                "keypoints": {
+                    "type": "array",
+                    "description": "Specifies the stop of each number in a point of time",
+                    "minItems": 1,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "time": { "$ref": "./number_types/normalized.schema.json" },
+                            "value": { "$ref": "./number_types/normalized.schema.json" },
+                            "envelope": { "$ref": "./number_types/normalized.schema.json" }
+                        },
+                        "required": ["time","value","envelope"]
                     }
-                },
-                "required": ["time","value","envelope"]
-            }
+                }
+            },
+            "required": ["keypoints"]
         }
     },
-    "required": ["keypoints"]
+    "required": ["NumberSequence"]
 }

@@ -3,5 +3,18 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "Int64",
     "description": "Int64",
-    "type": "integer"
+    "oneOf": [
+        {
+            "type": "integer"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "Int64": {
+                    "type": "integer"
+                }
+            },
+            "required": ["Int64"]
+        }
+    ]
 }

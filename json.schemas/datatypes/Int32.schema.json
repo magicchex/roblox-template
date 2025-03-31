@@ -3,5 +3,18 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "Int32",
     "description": "Int32",
-    "type": "integer"
+    "oneOf": [
+        {
+            "type": "integer"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "Int32": {
+                    "type": "integer"
+                }
+            },
+            "required": ["Int32"]
+        }
+    ]
 }
