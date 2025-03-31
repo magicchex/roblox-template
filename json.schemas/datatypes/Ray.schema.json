@@ -4,33 +4,43 @@
     "description": "A point in 3D space that looks at a specified direction.",
     "examples": [
         {
-            "origin": [1,2,3],
-            "direction": [1,2,3]
-        },
-        [
-            [1,2,3],[1,2,3]
-        ]
-    ],
-    "oneOf": [
-        {
-            "type": "object",
-            "properties": {
-                "origin": {
-                    "$ref": "./Vector3.schema.json"
-                },
-                "direction": {
-                    "$ref": "./Vector3.schema.json"
-                }
-            },
-            "required": ["origin", "direction"]
-        },
-        {
-            "type": "array",
-            "minItems": 2,
-            "maxItems": 2,
-            "items": {
-                "$ref": "./Vector3.schema.json"
+            "Ray": {
+                "origin": [1,2,3],
+                "direction": [1,2,3]
             }
+        },
+        {
+            "Ray": [
+                [1,2,3],[1,2,3]
+            ]
         }
-    ]
+    ],
+    "type": "object",
+    "properties": {
+        "Ray": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "origin": {
+                            "$ref": "./Vector3.schema.json"
+                        },
+                        "direction": {
+                            "$ref": "./Vector3.schema.json"
+                        }
+                    },
+                    "required": ["origin", "direction"]
+                },
+                {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "items": {
+                        "$ref": "./Vector3.schema.json"
+                    }
+                }
+            ]
+        }
+    },
+    "required": ["Ray"]
 }

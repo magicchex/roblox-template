@@ -2,10 +2,14 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "UDim2",
     "description": "Specifies the X or width and the Y or height of a 2D element",
-    "type": "array",
-    "minItems": 2,
-    "maxItems": 2,
-    "items": {
-        "$ref": "./UDim.schema.json"
-    }
+    "type": "object",
+    "properties": {
+        "UDim2": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": { "$ref": "./UDim.schema.json#/$defs/UDim" }
+        }
+    },
+    "required": ["UDim2"]
 }

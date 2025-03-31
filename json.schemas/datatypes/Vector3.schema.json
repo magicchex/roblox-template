@@ -2,9 +2,24 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "Vector3",
     "description": "A set of X, Y, and Z values",
-    "minItems": 3,
-    "maxItems": 3,
-    "items": {
-        "type": "number"
+    "oneOf": [
+        { "$ref": "#/definitions/Vector3" },
+        {
+            "type": "object",
+            "properties": {
+                "Vector3": { "$ref": "#/definitions/Vector3" }
+            },
+            "required": ["Vector3"]
+        }
+    ],
+    "definitions": {
+        "Vector3": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+                "type": "number"
+            }
+        }
     }
 }

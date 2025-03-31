@@ -2,9 +2,25 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "Vector2",
     "description": "A pair of X and Y values",
-    "minItems": 2,
-    "maximum": 2,
-    "items": {
-        "type": "number"
+    "oneOf": [
+        { "$ref": "#/definitions/Vector2" },
+        {
+            "type": "object",
+            "properties": {
+                "Vector2": { "$ref": "#/definitions/Vector2" }
+            },
+            "required": ["Vector2"]
+        }
+    ],
+
+    "definitions": {
+        "Vector2": {
+            "type": "array",
+            "minItems": 2,
+            "maximum": 2,
+            "items": {
+                "type": "number"
+            }
+        }
     }
 }
