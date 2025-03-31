@@ -14,12 +14,7 @@
                     "items": {
                         "type": "object",
                         "properties": {
-                            "time": {
-                                "description": "Must be a normalized value.",
-                                "type": "number",
-                                "minimum": 0,
-                                "maximum": 1
-                            },
+                            "time": { "$ref": "./number_types/normalized.schema.json" },
                             "color": {
                                 "$ref": "./Color3.schema.json"
                             }
