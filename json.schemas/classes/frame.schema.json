@@ -29,7 +29,7 @@
                 "BorderMode": {
                     "oneOf": [
                         { "$ref": "../datatypes/Enum.schema.json" },
-                        { "$ref": "../datatypes/enum/BorderMode.sche,a.json#/definitions/Enum" }
+                        { "$ref": "../datatypes/enum/BorderMode.schema.json#/definitions/Enum" }
                     ]
                 },
                 "BorderSizePixel": {
