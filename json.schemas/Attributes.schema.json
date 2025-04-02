@@ -19,97 +19,86 @@
     "type": "object",
     "minProperties": 1,
     "oneOf": [
-        { "$ref": "#/definitions/Attributes" },
-        {
-            "type": "object",
-            "properties": {
-                "AttributesSerialized": { "$ref": "#/definitions/Attributes" }
-            }
-        }
+        { "$ref": "#/definitions/implict" },
+        { "$ref": "#/definitions/explict" }
     ],
     "definitions": {
-        "Attributes": {
+        "AttributeTypes": {
+            "type": "object",
+            "minProperties": 1,
+            "patternProperties": {
+                ".*": {
+                    "type": "object",
+                    "minProperties": 1,
+                    "maxProperties": 1,
+                    "oneOf": [
+                        {
+                            "$ref": "./datatypes/Bool.schema.json#/definitions/explict"
+                        },
+                        {
+                            "$ref": "./datatypes/BrickColor.schema.json"
+                        },
+                        {
+                            "$ref": "./datatypes/CFrame.schema.json#/definitions/explict"
+                        },
+                        {
+                            "$ref": "./datatypes/Color3.schema.json#/definitions/explict"
+                        },
+                        {
+                            "$ref": "./datatypes/ColorSequence.schema.json"
+                        },
+                        {
+                            "$ref": "./datatypes/Float64.schema.json#/definitions/explict"
+                        },
+                        {
+                            "$ref": "./datatypes/Font.schema.json#/definitions/explict"
+                        },
+                        {
+                            "$ref": "./datatypes/NumberRange.schema.json"
+                        },
+                        {
+                            "$ref": "./datatypes/NumberSequence.schema.json"
+                        },
+                        {
+                            "$ref": "./datatypes/Rect.schema.json"
+                        },
+                        {
+                            "$ref": "./datatypes/String.schema.json#/definitions/explict"
+                        },
+                        {
+                            "$ref": "./datatypes/UDim.schema.json"
+                        },
+                        {
+                            "$ref": "./datatypes/UDim2.schema.json"
+                        },
+                        {
+                            "$ref": "./datatypes/Vector2.schema.json#/definitions/explict"
+                        },
+                        {
+                            "$ref": "./datatypes/Vector3.schema.json#/definitions/explict"
+                        }
+                    ]
+                }
+            }
+        },
+        "implict": {
             "type": "object",
             "properties": {
                 "Attributes": {
-                    "type": "object",
-                    "patternProperties": {
-                        ".*": {
-                            "type": "object",
-                            "minProperties": 1,
-                            "maxProperties": 1,
-                            "oneOf": [
-                                {
-                                    "$ref": "./datatypes/Bool.schema.json",
-                                    "required": ["Bool"]
-                                },
-                                {
-                                    "$ref": "./datatypes/BrickColor.schema.json",
-                                    "required": ["BrickColor"]
-                                },
-                                {
-                                    "$ref": "./datatypes/CFrame.schema.json",
-                                    "required": ["CFrame"]
-                                },
-                                {
-                                    "$ref": "./datatypes/Color3.schema.json",
-                                    "required": ["Color3"]
-                                },
-                                {
-                                    "$ref": "./datatypes/ColorSequence.schema.json",
-                                    "required": ["ColorSequence"]
-                                },
-                                {
-                                    "$ref": "./datatypes/Float64.schema.json",
-                                    "required": ["Float64"]
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "Font": {
-                                            "$ref": "./datatypes/Font.schema.json#/definitions/Font"
-                                        }
-                                    },
-                                    "required": ["Font"]
-                                },
-                                {
-                                    "$ref": "./datatypes/NumberRange.schema.json",
-                                    "required": ["NumberRange"]
-                                },
-                                {
-                                    "$ref": "./datatypes/NumberSequence.schema.json",
-                                    "required": ["NumberSequence"]
-                                },
-                                {
-                                    "$ref": "./datatypes/Rect.schema.json",
-                                    "required": ["Rect"]
-                                },
-                                {
-                                    "$ref": "./datatypes/String.schema.json",
-                                    "required": ["String"]
-                                },
-                                {
-                                    "$ref": "./datatypes/UDim.schema.json",
-                                    "required": ["UDim"]
-                                },
-                                {
-                                    "$ref": "./datatypes/UDim2.schema.json",
-                                    "required": ["UDim2"]
-                                },
-                                {
-                                    "$ref": "./datatypes/Vector2.schema.json",
-                                    "required": ["Vector2"]
-                                },
-                                {
-                                    "$ref": "./datatypes/Vector3.schema.json",
-                                    "required": ["Vector3"]
-                                }
-                            ]
-                        }
-                    }
+                    "$ref": "#/definitions/AttributeTypes"
                 }
             },
             "required": ["Attributes"]
+        },
+        "explict": {
+            "type": "object",
+            "properties": {
+                "AttributesSerialized": {
+                    "$ref": "#/definitions/implict"
+                }
+            },
+            "required": ["AttributesSerialized"]
         }
     }
+
 }
