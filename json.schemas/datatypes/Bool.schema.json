@@ -3,13 +3,19 @@
     "title": "Bool",
     "description": "Boolean",
     "oneOf": [
-        {"type": "boolean"},
-        {
+        { "$ref": "#/definitions/implict" },
+        { "$ref": "#/definitions/explict" }
+    ],
+    "definitions": {
+        "implict": {
+            "type": "boolean"
+        },
+        "explict": {
             "type": "object",
             "properties": {
                 "Bool": {"type": "boolean"}
             },
             "required": ["Bool"]
         }
-    ]
+    }
 }

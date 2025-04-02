@@ -3,14 +3,18 @@
     "title": "String",
     "description": "String",
     "oneOf": [
-        { "type": "string" },
-        {
+        { "$ref": "#/definitions/implict" },
+        { "$ref": "#/definitions/explict" }
+    ],
+    "definitions": {
+        "implict": { "type": "string" },
+        "explict": {
             "type": "object",
             "properties": {
-                "String": { "type": "string" }
+                "String": { "$ref": "#/definitions/implict" }
             },
             "required": ["String"]
         }
-    ]
+    }
 
 }

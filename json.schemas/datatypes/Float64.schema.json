@@ -4,15 +4,17 @@
     "title": "Float64",
     "description": "Float64",
     "oneOf": [
-        { "type": "number" },
-        {
+        { "$ref": "#/definitions/implict" },
+        { "$ref": "#/definitions/explict" }
+    ],
+    "definitions": {
+        "implict": { "type": "number" },
+        "explict": {
             "type": "object",
             "properties": {
-                "Float64": {
-                    "type": "number"
-                }
+                "Float64": { "$ref": "#/definitions/implict" }
             },
             "required": ["Float64"]
         }
-    ]
+    }
 }

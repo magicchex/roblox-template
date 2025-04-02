@@ -3,19 +3,11 @@
     "title": "MaterialColors",
     "description": "The texture and its color on Roblox Terrain",
     "oneOf": [
-        { "$ref": "#/definitions/MaterialColors" },
-        {
-            "type": "object",
-            "properties": {
-                "MaterialColors": {
-                    "$ref": "#/definitions/MaterialColors"
-                }
-            },
-            "required": ["MaterialColors"]
-        }
+        { "$ref": "#/definitions/implict" },
+        { "$ref": "#/definitions/explict" }
     ],
     "definitions": {
-        "MaterialColors": {
+        "implict": {
             "type": "object",
             "minProperties": 1,
             "properties": {
@@ -92,6 +84,15 @@
                     "$ref": "./Color3uint8.schema.json"
                 }
             }
+        },
+        "explict": {
+            "type": "object",
+            "properties": {
+                "MaterialColors": {
+                    "$ref": "#/definitions/implict"
+                }
+            },
+            "required": ["MaterialColors"]
         }
     }
 }

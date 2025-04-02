@@ -3,22 +3,23 @@
     "title": "Tags",
     "description": "Unique identifers to Roblox objects",
     "oneOf": [
-        { "$ref": "#/definitions/Tags" },
-        {
-            "type": "object",
-            "properties": {
-                "Tags": { "$ref": "#/definitions/Tags" }
-            },
-            "required": ["Tags"]
-        }
+        { "$ref": "#/definitions/implict" },
+        { "$ref": "#/definitions/explict" }
     ],
     "definitions": {
-        "Tags": {
+        "implict": {
             "type": "array",
             "minItems": 1,
             "items": {
                 "type": "string"
             }
+        },
+        "explict": {
+            "type": "object",
+            "properties": {
+                "Tags": { "$ref": "#/definitions/implict" }
+            },
+            "required": ["Tags"]
         }
     }
 }

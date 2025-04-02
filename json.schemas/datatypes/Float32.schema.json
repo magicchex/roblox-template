@@ -4,15 +4,17 @@
     "title": "Float32",
     "description": "Float32",
     "oneOf": [
-        { "type": "number" },
-        {
+        { "$ref": "#/definitions/implict" },
+        { "$ref": "#/definitions/explict" }
+    ],
+    "definitions": {
+        "implict": { "type": "number" },
+        "explict": {
             "type": "object",
             "properties": {
-                "Float32": {
-                    "type": "number"
-                }
+                "Float32": { "$ref": "#/definitions/implict" }
             },
             "required": ["Float32"]
         }
-    ]
+    }
 }

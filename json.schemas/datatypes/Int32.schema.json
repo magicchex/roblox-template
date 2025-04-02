@@ -4,17 +4,17 @@
     "title": "Int32",
     "description": "Int32",
     "oneOf": [
-        {
-            "type": "integer"
-        },
-        {
+        { "$ref": "#/definitions/implict" },
+        { "$ref": "#/definitions/explict" }
+    ],
+    "definitions": {
+        "implict": { "type": "number" },
+        "explict": {
             "type": "object",
             "properties": {
-                "Int32": {
-                    "type": "integer"
-                }
+                "Int32": { "$ref": "#/definitions/implict" }
             },
             "required": ["Int32"]
         }
-    ]
+    }
 }

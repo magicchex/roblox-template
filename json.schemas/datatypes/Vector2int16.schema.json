@@ -3,23 +3,24 @@
     "title": "Vector2int16",
     "description": "A pair of X and Y value. It's a signed 16-bit integer.",
     "oneOf": [
-        { "$ref": "#/definitions/Vector2int16" },
-        {
-            "type": "object",
-            "properties": {
-                "Vector2int16": { "$ref": "#/definitions/Vector2int16" }
-            },
-            "required": ["Vector2int16"]
-        }
+        { "$ref": "#/definitions/implict" },
+        { "$ref": "#/definitions/explict" }
     ],
     "definitions": {
-        "Vector2int16": {
+        "implict": {
             "type": "array",
             "minItems": 2,
             "maxItems": 2,
             "items": {
                 "type": "integer"
             }
+        },
+        "explict": {
+            "type": "object",
+            "properties": {
+                "Vector2int16": { "$ref": "#/definitions/implict" }
+            },
+            "required": ["Vector2int16"]
         }
     }
 }

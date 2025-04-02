@@ -4,23 +4,22 @@
     "description": "RGB. Uses normalized values.",
 
     "oneOf": [
-        {
-            "type": "object",
-            "properties": {
-                "Color3": {"$ref": "#/definitions/Color3" }
-            },
-            "required": ["Color3"]
-        },
-        {
-            "$ref": "#/definitions/Color3"
-        }
+        { "$ref": "#/definitions/explict" },
+        { "$ref": "#/definitions/implict" }
     ],
     "definitions": {
-        "Color3": {
+        "implict": {
             "type": "array",
             "minItems": 3,
             "maxItems": 3,
             "items": { "$ref": "./number_types/normalized.schema.json" }
+        },
+        "explict": {
+            "type": "object",
+            "properties": {
+                "Color3": {"$ref": "#/definitions/implict" }
+            },
+            "required": ["Color3"]
         }
     }
 }

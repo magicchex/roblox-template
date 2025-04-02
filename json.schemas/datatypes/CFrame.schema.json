@@ -4,7 +4,19 @@
     "description": "Specifies the object's position and orientation in 3D space",
 
     "oneOf": [
-        {
+        { "$ref": "#/definitions/explict" },
+        { "$ref": "#/definitions/implict" }
+    ],
+    "definitions": {
+        "implict": {
+            "type": "array",
+            "minItems": 12,
+            "maxItems": 12,
+            "items": {
+                "type": "number"
+            }
+        },
+        "explict": {
             "type": "object",
             "properties": {
                 "CFrame": {
@@ -40,14 +52,6 @@
                 }
             },
             "required": ["CFrame"]
-        },
-        {
-            "type": "array",
-            "minItems": 12,
-            "maxItems": 12,
-            "items": {
-                "type": "number"
-            }
         }
-    ]
+    }
 }

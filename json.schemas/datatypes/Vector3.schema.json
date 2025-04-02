@@ -3,23 +3,24 @@
     "title": "Vector3",
     "description": "A set of X, Y, and Z values",
     "oneOf": [
-        { "$ref": "#/definitions/Vector3" },
-        {
-            "type": "object",
-            "properties": {
-                "Vector3": { "$ref": "#/definitions/Vector3" }
-            },
-            "required": ["Vector3"]
-        }
+        { "$ref": "#/definitions/implict" },
+        { "$ref": "#/definitions/explict" }
     ],
     "definitions": {
-        "Vector3": {
+        "implict": {
             "type": "array",
             "minItems": 3,
             "maxItems": 3,
             "items": {
                 "type": "number"
             }
+        },
+        "explict": {
+            "type": "object",
+            "properties": {
+                "Vector3": { "$ref": "#/definitions/implict" }
+            },
+            "required": ["Vector3"]
         }
     }
 }

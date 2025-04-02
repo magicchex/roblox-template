@@ -3,23 +3,24 @@
     "title": "Vector3int16",
     "description": "A set of X, Y, and Z values. It is a signed 16-bit integer.",
     "oneOf": [
-        { "$ref": "#/definitions/Vector3int16" },
-        {
-            "type": "object",
-            "properties": {
-                "Vector3int16": { "$ref": "#/definitions/Vector3int16" }
-            },
-            "required": ["Vector3int16"]
-        }
+        { "$ref": "#/definitions/implict" },
+        { "$ref": "#/definitions/explict" }
     ],
     "definitions": {
-        "Vector3int16": {
+        "implict": {
             "type": "array",
             "minItems": 3,
             "maxItems": 3,
             "items": {
                 "type": "integer"
             }
+        },
+        "explict": {
+            "type": "object",
+            "properties": {
+                "Vector3int16": { "$ref": "#/definitions/implict" }
+            },
+            "required": ["Vector3int16"]
         }
     }
 }

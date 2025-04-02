@@ -3,17 +3,11 @@
     "title": "Font",
     "description": "A Roblox-supported font",
     "oneOf": [
-        { "$ref": "#/definitions/Font" },
-        {
-            "type": "object",
-            "properties": {
-                "Font": { "$ref": "#/definitions/Font" }
-            },
-            "required": ["Font"]
-        }
+        { "$ref": "#/definitions/implict" },
+        { "$ref": "#/definitions/explict" }
     ],
     "definitions": {
-        "Font": {
+        "implict": {
             "type": "object",
             "properties": {
                 "family": {
@@ -34,6 +28,13 @@
                 }
             },
             "required": ["family", "weight", "style"]
+        },
+        "explict": {
+            "type": "object",
+            "properties": {
+                "Font": { "$ref": "#/definitions/implict" }
+            },
+            "required": ["Font"]
         }
     }
 }

@@ -3,24 +3,25 @@
     "title": "Vector2",
     "description": "A pair of X and Y values",
     "oneOf": [
-        { "$ref": "#/definitions/Vector2" },
-        {
-            "type": "object",
-            "properties": {
-                "Vector2": { "$ref": "#/definitions/Vector2" }
-            },
-            "required": ["Vector2"]
-        }
+        { "$ref": "#/definitions/implict" },
+        { "$ref": "#/definitions/explict" }
     ],
 
     "definitions": {
-        "Vector2": {
+        "implict": {
             "type": "array",
             "minItems": 2,
             "maximum": 2,
             "items": {
                 "type": "number"
             }
+        },
+        "explict": {
+            "type": "object",
+            "properties": {
+                "Vector2": { "$ref": "#/definitions/implict" }
+            },
+            "required": ["Vector2"]
         }
     }
 }

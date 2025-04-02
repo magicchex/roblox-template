@@ -3,13 +3,17 @@
     "title": "ProtectedString",
     "description": "A lua code snippet which is formatted as a string.",
     "oneOf": [
-        { "type": "string" },
-        {
+        { "$ref": "#/definitions/implict" },
+        { "$ref": "#/definitions/explict" }
+    ],
+    "definitions": {
+        "implict": { "type": "string" },
+        "explict": {
             "type": "object",
             "properties": {
-                "ProtectedString": { "type": "string" }
+                "ProtectedString": { "$ref": "#/definitions/implict" }
             },
             "required": ["ProtectedString"]
         }
-    ]
+    }
 }

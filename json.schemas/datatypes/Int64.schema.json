@@ -4,17 +4,17 @@
     "title": "Int64",
     "description": "Int64",
     "oneOf": [
-        {
-            "type": "integer"
-        },
-        {
+        { "$ref": "#/definitions/implict" },
+        { "$ref": "#/definitions/explict" }
+    ],
+    "definitions": {
+        "implict": { "type": "number" },
+        "explict": {
             "type": "object",
             "properties": {
-                "Int64": {
-                    "type": "integer"
-                }
+                "Int64": { "$ref": "#/definitions/implict" }
             },
             "required": ["Int64"]
         }
-    ]
+    }
 }

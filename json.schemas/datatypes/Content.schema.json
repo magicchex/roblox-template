@@ -4,17 +4,11 @@
     "description": "Loads Roblox assets through valid URI formats",
 
     "oneOf": [
-        { "$ref": "#/definitions/Content" },
-        {
-            "type": "object",
-            "properties": {
-                "Content": { "$ref": "#/definitions/Content" }
-            },
-            "required": ["Content"]
-        }
+        { "$ref": "#/definitions/implict" },
+        { "$ref": "#/definitions/explict" }
     ],
     "definitions": {
-        "Content": {
+        "implict": {
             "type": "string",
             "examples": [
                 "rbxassetid://",
@@ -56,6 +50,13 @@
                     "pattern": "rbxtemp:\/{2}[0-9]+"
                 }
             ]
+        },
+        "explict": {
+            "type": "object",
+            "properties": {
+                "Content": { "$ref": "#/definitions/implict" }
+            },
+            "required": ["Content"]
         }
     }
 }
