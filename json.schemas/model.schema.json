@@ -1,38 +1,28 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
+    "$ref": "#/definitions/classes",
     "properties": {
-        "ClassName": {
-            "$ref": "./ClassName.schema.json",
-            "description": "The class name"
-        },
-        "Properties": {
-            "description": "The properties of the instance",
-            "$ref": "./properties.schema.json"
-        },
         "Children": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "Name": {
-                        "type": "string",
-                        "description": "The name of the instance"
-                    },
-                    "ClassName": {
-                        "type": "string",
-                        "description": "The class name of the instance"
-                    },
-                    "Properties": {
-                        "description": "The properties of the instance",
-                        "$ref": "./properties.schema.json"
-                    }
-                },
-                "required": ["ClassName"]
-            }
+            "$ref": "#/definitions/recursiveChildren"
         }
     },
-    "required": [
-        "ClassName"
-    ]
+    "definitions": {
+        "recursiveChildren": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "$ref": "#/definitions/classes",
+                "properties": {
+                    "Name": { "type": "string" },
+                    "Children": { "$ref": "#/definitions/recursiveChildren"}
+                }
+            }
+        },
+        "classes": {
+            "type": "object",
+            "oneOf": [
+                { "$ref": "./classes/frame.schema.json" }
+            ]
+        }
+    }
 }
