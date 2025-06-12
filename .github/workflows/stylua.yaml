@@ -2,7 +2,7 @@ name: stylua
 
 on:
   push:
-    paths: src/**/*.luau
+    paths: [src/**/*.luau]
 env:
   GIT_NO_REPLY_EMAIL: actions@github.com
   GIT_USERNAME: GitHub Actions
