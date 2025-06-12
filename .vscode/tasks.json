@@ -6,15 +6,15 @@
         {
             "label": "rojo serve",
             "type": "shell",
-            "command": "rojo serve"
+            "command": "rojo serve",
         },
         {
             "label": "rojo build place",
             "type": "shell",
-            "command": [
-                "$path='out/';;",
-                "rojo build -o \"${path}place.rbxl\";;"
-            ]
+            "windows": {
+                "command": "lune run ./lune/RojoBuildPlace.luau ${input:placeDirectory} ${input:placeFileName} ${input:placeFileExtension}"
+            }
+            
         },
         {
             "label": "lune run",
@@ -26,12 +26,25 @@
             "type": "shell",
             "command": "npm i -g moonwave"
         },
+    ],
+    "inputs": [
         {
-            "label": "lune run rojo build",
-            "type": "shell",
-            "command": [
-                "lune run 'lune/buildPlace'"
-            ]
+            "id": "placeFileName",
+            "type": "promptString",
+            "description": "Place filename",
+            "default": "place"
+        },
+        {
+            "id": "placeDirectory",
+            "type": "promptString",
+            "description": "The location of your place files as an path. If it doesn't exist, it will try to create one.",
+            "default": "places"
+        },
+        {
+            "id": "placeFileExtension",
+            "type": "pickString",
+            "description": "Choose the file extension of your place file.",
+            "options": [".rbxl", ".rbxlx"]
         }
     ]
 }
