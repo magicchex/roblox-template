@@ -1,10 +1,6 @@
 # Moonwave
 build
 
-# python
-venv
-logs
-__pycache__
 # Wally Dependencies
 Packages
 
