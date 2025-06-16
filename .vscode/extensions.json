@@ -1,7 +1,7 @@
 {
     "recommendations": [
         "johnnymorganz.luau-lsp",
-        "sanaajani.taskrunnercode",
+        "cnshenj.vscode-task-manager",
         "formulahendry.code-runner",
         "redhat.vscode-yaml",
         "tamasfe.even-better-toml",
