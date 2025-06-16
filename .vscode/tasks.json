@@ -17,6 +17,11 @@
             
         },
         {
+            "label": "rbxcloud bulk upload place",
+            "type": "shell",
+            "command": "lune run ./lune/RojoUploadPlace.luau ${input:placePublishingKey} ${input:universeId} ${input:placeDirectory}"
+        },
+        {
             "label": "lune run",
             "type": "shell",
             "command": "lune run ${file}"
@@ -44,7 +49,17 @@
             "id": "placeFileExtension",
             "type": "pickString",
             "description": "Choose the file extension of your place file.",
-            "options": [".rbxl", ".rbxlx"]
+            "options": ["rbxl", "rbxlx"]
+        },
+        {
+            "id": "placePublishingKey",
+            "type": "promptString",
+            "description": "Your Place Publishing API Key"
+        },
+        {
+            "id": "universeId",
+            "type": "promptString",
+            "description": "Your Universe ID"
         }
     ]
 }
