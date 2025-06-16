@@ -58,7 +58,7 @@ function fsPlus.appendToFile(filepath: string, content: string): boolean
 end
 function fsPlus.getExtension(path: string): string
 	if super.isFile(path) then
-		local startIndex, _ = string.find(path, '.', 0, true)
+		local startIndex, _ = string.find(path, '.', -1, true)
 		if startIndex then
 			return string.sub(path, startIndex)
 		end
@@ -67,9 +67,9 @@ function fsPlus.getExtension(path: string): string
 end
 function fsPlus.getFilename(path: string): string
 	if super.isFile(path) then
-		local startIndex, _ = string.find(path, '.', 0, true)
+		local startIndex, _ = string.find(path, '.', -1, true)
 		if startIndex then
-			return string.sub(path, 0, startIndex - 1)
+			return string.sub(path, 1, startIndex - 1)
 		end
 	end
 	return ''
