@@ -1,0 +1,28 @@
+{
+  "name": "roblox-template",
+  "version": "1.0.0",
+  "description": "An roblox template",
+  "private": true,
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "watch": "rbxtsc -w",
+    "build": "rbxtsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/magicchex/roblox-template.git"
+  },
+  "author": "magicchex",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/magicchex/roblox-template/issues"
+  },
+  "homepage": "https://github.com/magicchex/roblox-template#readme",
+  "devDependencies": {
+    "@rbxts/compiler-types": "^3.0.0-types.0",
+    "@rbxts/types": "^1.0.858",
+    "roblox-ts": "^3.0.0"
+  }
+}

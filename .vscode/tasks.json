@@ -17,20 +17,47 @@
             "label": "rojo serve",
             "type": "shell",
             "command": "rojo serve",
+            "isBackground": true,
+            "presentation": {
+                "reveal": "silent",
+            }
+        },
+        {
+            "label": "rbxtsc watch",
+            "type": "shell",
+            "command": "npm run-script watch",
+            "isBackground": true,
+            "presentation": {
+                "reveal": "silent",
+            }
         },
         {
             "label": "rojo build place",
             "type": "shell",
             "windows": {
-                "command": "lune run ./lune/RojoBuildPlace.luau ${input:placeDirectory} ${input:placeFileName} ${input:placeFileExtension}"
+                "command": "npm run-script build;; lune run ./lune/RojoBuildPlace.luau ${input:placeDirectory} ${input:placeFileName} ${input:placeFileExtension}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
             }
-            
         },
         {
-            "label": "rbxcloud bulk upload place",
+            "label": "rojo upload",
             "type": "shell",
-            "command": "lune run ./lune/BulkUploadPlace.luau ${input:placePublishingKey} ${input:universeId} ${input:placeDirectory}"
+            "command": "rojo upload --api_key ${input:placePublishingKey} --asset_id ${input:assetId} --universe_id ${input:universeId}",
+            "group": "build"
         },
+        {
+            "label": "rbxcloud upload experience",
+            "type": "shell",
+            "command": "rbxcloud experience publish --api-key ${input:placePublishingKey} --place-id ${input:assetId} --universe-id ${input:universeId} --version-type ${input:versionType} --filename ${input:rbxcloudPlaceFilepath}"
+        },
+        // {
+        //     "label": "rbxcloud bulk upload places",
+        //     "type": "shell",
+        //     "command": "lune run ./lune/BulkUploadPlace.luau ${input:placePublishingKey} ${input:universeId} ${input:placeDirectory}"
+        // },
         {
             "label": "lune run",
             "type": "shell",
@@ -81,6 +108,22 @@
             "id": "assetDirectory",
             "type": "promptString",
             "description": "Your Asset Directory"
+        },
+        {
+            "id": "assetId",
+            "type": "promptString",
+            "description": "Your Asset ID"
+        },
+        {
+            "id": "rbxcloudPlaceFilepath",
+            "type": "promptString",
+            "description": "The absolute or relative path of the place file to upload."
+        },
+        {
+            "id": "versionType",
+            "type": "pickString",
+            "description": "saved = only upload to Roblox; published = upload and release it to the public",
+            "options": ["saved", "published"]
         }
     ]
 }

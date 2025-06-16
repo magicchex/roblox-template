@@ -4,32 +4,43 @@
     "$className": "DataModel",
 
     "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
       "Packages": {
         "$className": "Folder",
         "$path": "Packages/"
       },
-      "$path": "src/shared"
+      "@rbxts/include": {
+        "$className": "Folder",
+        "$path": "include"
+      },
+      "$path": "out/shared"
     },
 
     "ServerScriptService": {
-      "$path": "src/server"
+      "$className": "ServerScriptService",
+      "$path": "out/server"
     },
 
     "StarterPlayer": {
+      "$className": "StarterPlayer",
       "StarterPlayerScripts": {
-        "$path": "src/client/player"
+        "$className": "StarterPlayerScripts",
+        "$path": "out/client/player"
       },
       "StarterCharacterScripts": {
-        "$path": "src/client/character"
+        "$className": "StarterCharacterScripts",
+        "$path": "out/client/character"
       }
     },
 
     "Workspace": {
+      "$className": "Workspace",
       "$properties": {
         "FilteringEnabled": true
       }
     },
     "Lighting": {
+      "$className": "Lighting",
       "$properties": {
         "Ambient": [
           0,
@@ -43,6 +54,7 @@
       }
     },
     "SoundService": {
+      "$className": "SoundService",
       "$properties": {
         "RespectFilteringEnabled": true
       }
