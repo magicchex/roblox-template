@@ -19,3 +19,6 @@ sourcemap.json
 # Test files
 *.test.model.json
 *.test.schema.json
+
+# Asphalt
+asphalt.lock.toml
