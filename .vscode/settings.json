@@ -45,6 +45,11 @@
     "package-lock.json": false,
     "moonwave.toml": false,
     "blog": false,
-    "docs": false
+    "docs": false,
+    ".prettierignore": false,
+    ".prettierrc": false,
+    ".eslintrc": false,
+    ".luaurc": false,
+    "asphalt.lock.toml": false
   }
 }
