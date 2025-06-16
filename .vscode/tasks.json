@@ -4,6 +4,16 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "asphalt sync studio",
+            "type": "shell",
+            "command": "asphalt sync --target studio --api-key ${input:asphaltApiKey}"
+        },
+        {
+            "label": "asphalt upload",
+            "type": "shell",
+            "command": "asphalt sync --target cloud --api-key ${input:asphaltApiKey}"
+        },
+        {
             "label": "rojo serve",
             "type": "shell",
             "command": "rojo serve",
@@ -60,6 +70,17 @@
             "id": "universeId",
             "type": "promptString",
             "description": "Your Universe ID"
+        },
+        {
+            "id": "asphaltApiKey",
+            "type": "promptString",
+            "description": "Your API Key for Asphalt synchronization",
+            "password": true
+        },
+        {
+            "id": "assetDirectory",
+            "type": "promptString",
+            "description": "Your Asset Directory"
         }
     ]
 }
