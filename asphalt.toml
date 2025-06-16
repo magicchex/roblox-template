@@ -1,0 +1,13 @@
+[creator]
+type = "user" # user | group
+id = 0
+
+[codegen]
+output_name = "Asphalt"
+typescript = true
+style = "flat"
+strip_extension = false
+
+[inputs.assets]
+path="public/**/*"
+output_path="src/shared"
