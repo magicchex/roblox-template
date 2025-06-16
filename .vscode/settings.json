@@ -3,11 +3,23 @@
     "editor.defaultFormatter": "JohnnyMorganz.stylua",
     "editor.formatOnSave": true
   },
-  "luau-lsp.require.mode": "relativeToFile",
-  "luau-lsp.require.directoryAliases": {
-    "@lune/": "~/.lune/.typedefs/0.8.9/"
-  },
   "code-runner.executorMapByFileExtension": {
     ".luau": "lune run $fullFileName"
+  },
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "**/*.model.json"
+      ],
+      "url": "https://raw.githubusercontent.com/magicchex/json-schema/refs/heads/main/rbx-rojo/model.schema.json"
+    }
+  ],
+  "workbench.editor.customLabels.enabled": true,
+  "workbench.editor.customLabels.patterns": {
+    "**/init.**.luau": "${dirname}",
+    "**/**.**.luau": "${filename}",
+  },
+  "files.associations": {
+    ".luaurc": "json"
   }
 }

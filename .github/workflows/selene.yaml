@@ -4,7 +4,7 @@ on:
   pull_request:
     branches:
       - master
-    paths: src/**/*.luau
+    paths: ["src/**/*.luau"]
 env:
   SOURCE_FOLDER: src
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

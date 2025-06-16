@@ -4,17 +4,32 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "asphalt sync studio",
+            "type": "shell",
+            "command": "asphalt sync --target studio --api-key ${input:asphaltApiKey}"
+        },
+        {
+            "label": "asphalt upload",
+            "type": "shell",
+            "command": "asphalt sync --target cloud --api-key ${input:asphaltApiKey}"
+        },
+        {
             "label": "rojo serve",
             "type": "shell",
-            "command": "rojo serve"
+            "command": "rojo serve",
         },
         {
             "label": "rojo build place",
             "type": "shell",
-            "command": [
-                "$path='out/';;",
-                "rojo build -o \"${path}place.rbxl\";;"
-            ]
+            "windows": {
+                "command": "lune run ./lune/RojoBuildPlace.luau ${input:placeDirectory} ${input:placeFileName} ${input:placeFileExtension}"
+            }
+            
+        },
+        {
+            "label": "rbxcloud bulk upload place",
+            "type": "shell",
+            "command": "lune run ./lune/BulkUploadPlace.luau ${input:placePublishingKey} ${input:universeId} ${input:placeDirectory}"
         },
         {
             "label": "lune run",
@@ -26,12 +41,46 @@
             "type": "shell",
             "command": "npm i -g moonwave"
         },
+    ],
+    "inputs": [
         {
-            "label": "lune run rojo build",
-            "type": "shell",
-            "command": [
-                "lune run 'lune/buildPlace'"
-            ]
+            "id": "placeFileName",
+            "type": "promptString",
+            "description": "Place filename",
+            "default": "place"
+        },
+        {
+            "id": "placeDirectory",
+            "type": "promptString",
+            "description": "The location of your place files as an path. If it doesn't exist, it will try to create one.",
+            "default": "places"
+        },
+        {
+            "id": "placeFileExtension",
+            "type": "pickString",
+            "description": "Choose the file extension of your place file.",
+            "options": ["rbxl", "rbxlx"]
+        },
+        {
+            "id": "placePublishingKey",
+            "type": "promptString",
+            "description": "Your Place Publishing API Key"
+        },
+        {
+            "id": "universeId",
+            "type": "promptString",
+            "description": "Your Universe ID"
+        },
+        {
+            "id": "asphaltApiKey",
+            "type": "promptString",
+            "description": "Your API Key for Asphalt synchronization",
+            "password": true
+        },
+        {
+            "id": "assetDirectory",
+            "type": "promptString",
+            "description": "Your Asset Directory"
         }
     ]
 }

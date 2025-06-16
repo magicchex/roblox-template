@@ -1,10 +1,6 @@
 # Moonwave
 build
 
-# python
-venv
-logs
-__pycache__
 # Wally Dependencies
 Packages
 
@@ -19,3 +15,10 @@ Packages
 *.rbxl.lock
 # Rojo
 sourcemap.json
+
+# Test files
+*.test.model.json
+*.test.schema.json
+
+# Asphalt
+asphalt.lock.toml
