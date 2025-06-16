@@ -5,6 +5,8 @@
         "formulahendry.code-runner",
         "redhat.vscode-yaml",
         "tamasfe.even-better-toml",
-        "johnnymorganz.stylua"
+        "johnnymorganz.stylua",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint"
     ]
 }

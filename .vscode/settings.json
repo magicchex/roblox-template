@@ -3,6 +3,16 @@
     "editor.defaultFormatter": "JohnnyMorganz.stylua",
     "editor.formatOnSave": true
   },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "eslint.run": "onType",
+  "eslint.format.enable": false,
   "code-runner.executorMapByFileExtension": {
     ".luau": "lune run $fullFileName"
   },
@@ -35,6 +45,11 @@
     "package-lock.json": false,
     "moonwave.toml": false,
     "blog": false,
-    "docs": false
+    "docs": false,
+    ".prettierignore": false,
+    ".prettierrc": false,
+    ".eslintrc": false,
+    ".luaurc": false,
+    "asphalt.lock.toml": false
   }
 }
