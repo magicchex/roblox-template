@@ -19,7 +19,7 @@
         {
             "label": "rbxcloud bulk upload place",
             "type": "shell",
-            "command": "lune run ./lune/RojoUploadPlace.luau ${input:placePublishingKey} ${input:universeId} ${input:placeDirectory}"
+            "command": "lune run ./lune/BulkUploadPlace.luau ${input:placePublishingKey} ${input:universeId} ${input:placeDirectory}"
         },
         {
             "label": "lune run",
