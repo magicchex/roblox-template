@@ -23,4 +23,18 @@
     ".luaurc": "json"
   },
   "typescript.tsc.autoDetect": "off",
+  "files.exclude": {
+    "node_modules": false,
+    "include": false,
+    ".github": false,
+    "sourcemap.json": false,
+    "selene.toml": false,
+    "stylua.toml": false,
+    ".styluaignore": false,
+    "tsconfig.json": false,
+    "package-lock.json": false,
+    "moonwave.toml": false,
+    "blog": false,
+    "docs": false
+  }
 }
