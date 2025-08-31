@@ -6,7 +6,7 @@
         {
             "label": "asphalt sync studio",
             "type": "shell",
-            "command": "asphalt sync --target studio --api-key ${input:asphaltApiKey}"
+            "command": "asphalt sync --target studio"
         },
         {
             "label": "asphalt upload",
