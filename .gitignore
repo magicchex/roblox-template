@@ -26,3 +26,6 @@ asphalt.lock.toml
 node_modules
 include
 out
+
+# Node
+package-lock.json
