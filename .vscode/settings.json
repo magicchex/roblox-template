@@ -14,7 +14,6 @@
   },
   "eslint.run": "onType",
   "eslint.format.enable": false,
-  "eslint.useFlatConfig": true,
   "code-runner.executorMapByFileExtension": {
     ".luau": "lune run $fullFileName"
   },
