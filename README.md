@@ -26,7 +26,7 @@ Refer to Rojo's [Project Format](https://rojo.space/docs/v7/project-format/)
 ### Setup Lune
 1. Run `lune setup` so lune can store its definitions in your home directory
 
-### Setup Asphalt (pre-release version)
+### Setup Asphalt
 1. Go into [`asphalt.toml`](asphalt.toml) and edit the `[creator]` properties
 
 2. Store all assets in [`public`](public) directory
