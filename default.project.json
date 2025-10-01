@@ -1,5 +1,8 @@
 {
   "name": "Template",
+  "globIgnorePaths": [
+    "**/.gitkeep"
+  ],
   "tree": {
     "$className": "DataModel",
 

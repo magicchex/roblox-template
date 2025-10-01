@@ -11,4 +11,5 @@
         "outDir": "./out",
     },
     "include": ["src/**/*"],
+    "exclude": ["**/.gitkeep"]
 }
