@@ -32,10 +32,19 @@
             }
         },
         {
+            "label": "rojo watch",
+            "type": "shell",
+            "command": "rojo build --watch -o ${input:placeFileName}",
+            "isBackground": true,
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
             "label": "rojo build place",
             "type": "shell",
             "windows": {
-                "command": "npm run-script build;; lune run ./lune/RojoBuildPlace.luau ${input:placeDirectory} ${input:placeFileName} ${input:placeFileExtension}"
+                "command": "npm run-script build;; rojo build --output ${input:placeFileName}"// lune run ./lune/RojoBuildPlace.luau ${input:placeDirectory} ${input:placeFileName} ${input:placeFileExtension}"
             },
             "group": {
                 "kind": "build",

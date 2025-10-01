@@ -1,5 +1,5 @@
 title = "Template Documentation"
-gitRepoUrl = "https://github.com/magicchex/roblox-template"
+gitRepoUrl = ""
 
 gitSourceBranch = "master"
 changelog = true
@@ -7,9 +7,9 @@ classOrder = []
 
 [docusaurus] # https://docusaurus.io/docs/api/docusaurus-config
 title = 'Template Documentation'
-url = 'https://chee-vang.com'
-baseUrl = "/roblox-template"
-favicon = "/assets/favicon.ico"
+url = ''
+baseUrl = ""
+favicon = ""
 # themeConfig = {}
 onBrokenLinks = "throw"
 onBrokenMarkdownLinks = "warn"
@@ -17,7 +17,7 @@ onBrokenMarkdownLinks = "warn"
 
 [footer]
 style = "dark"
-copyright = "Copyright © 2025 magicchex. Built with Moonwave and Docusaurus"
+copyright = "Copyright © 2025 AUTHOR. Built with Moonwave and Docusaurus"
 
 # [[footer.links]]
 # title = "examples"
