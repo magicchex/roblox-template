@@ -21,7 +21,7 @@ Install the recommended extensions found in `extensions.json`
 ### Configure `Moonwave.toml`
 Refer to [Moonwave](https://github.com/evaera/moonwave?tab=readme-ov-file#moonwave)
 ### Configure `default.project.json`
-Refer to Rojo's [Project Format](https://rojo.space/docs/)
+Refer to Rojo's [Project Format](https://rojo.space/docs/v7/project-format/)
 
 ### Setup Lune
 1. Run `lune setup` so lune can store its definitions in your home directory
