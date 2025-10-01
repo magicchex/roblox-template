@@ -7,7 +7,13 @@ output_name = "Asphalt"
 typescript = true
 style = "flat"
 strip_extension = false
+content = false
 
 [inputs.assets]
 path="public/**/*"
 output_path="src/shared"
+bleed = true
+warn_each_duplicate = true
+
+[inputs.assets.web]
+# "filepath.ext" =  { id = 00000000 }
