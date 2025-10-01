@@ -32,6 +32,15 @@
             }
         },
         {
+            "label": "rojo watch",
+            "type": "shell",
+            "command": "rojo build --watch -o ${input:placeFileName}",
+            "isBackground": true,
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
             "label": "rojo build place",
             "type": "shell",
             "windows": {
