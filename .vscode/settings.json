@@ -28,7 +28,7 @@
   "workbench.editor.customLabels.enabled": true,
   "workbench.editor.customLabels.patterns": {
     "**/init.**.luau": "${dirname}",
-    "**/init.luau": "${dirname",
+    "**/init.luau": "${dirname}",
     "**/**.**.luau": "${filename}",
     "**/index.**.ts": "${dirname}",
     "**/index.ts": "${dirname}",
