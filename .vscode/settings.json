@@ -38,6 +38,7 @@
     ".luaurc": "json"
   },
   "typescript.tsc.autoDetect": "off",
+  "robloxIDE.autoInsertModuleBoilerplate.enabled": false,
   "files.exclude": {
     "node_modules": false,
     "include": false,
