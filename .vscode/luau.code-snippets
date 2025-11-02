@@ -123,6 +123,6 @@
     "GetService": {
         "scope": "luau",
         "prefix": "getservice",
-        "body": "game.GetService(\"${1}\")"
+        "body": "game:GetService(\"${1}\")"
     },
 }
