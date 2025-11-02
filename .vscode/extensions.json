@@ -7,7 +7,6 @@
         "tamasfe.even-better-toml",
         "johnnymorganz.stylua",
         "esbenp.prettier-vscode",
-        "dbaeumer.vscode-eslint",
-        "ThornHall.roblox-studio-like-syntax-highlighting"
-    ]
+        "dbaeumer.vscode-eslint"
+        ]
 }
