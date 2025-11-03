@@ -4,35 +4,26 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "asphalt sync studio",
+            "label": "Asphalt studio sync",
             "type": "shell",
             "command": "asphalt sync --target studio"
         },
         {
-            "label": "asphalt upload",
+            "label": "Asphalt upload roblox",
             "type": "shell",
             "command": "asphalt sync --target cloud --api-key ${input:asphaltApiKey}"
         },
         {
-            "label": "rojo serve",
-            "type": "shell",
-            "command": "rojo serve",
-            "isBackground": true,
-            "presentation": {
-                "reveal": "silent",
-            }
-        },
-        {
             "label": "__rbxtscbuild",
             "type": "shell",
-            "command": "npm run 'rbxtsc build'",
+            "command": "npm run 'rbxtsc build' -- --rojo ${input:projectJson}",
             "hide": true,
             "group": "build"
         },
         {
             "label": "__rojobuild",
             "type": "shell",
-            "command": "rojo build --output ${input:placeFileName}.${input:placeFileExtension}",
+            "command": "rojo build --output ${input:placeFileBaseName}.${input:placeFileExtension}",
             "hide": true,
             "group": "build"
         },
@@ -44,34 +35,93 @@
             "group": "build"
         },
         {
-            "label": "Build Project",
-            "type": "shell",
+            "label": "Build Place",
             "dependsOn": ["__rbxtscbuild","__rojobuild","__moonwavebuild"],
             "dependsOrder": "sequence",
             "group": {
                 "kind": "build",
                 "isDefault": true
+            },
+        },
+        {
+            "label": "__rbxtscwatch",
+            "type": "shell",
+            "command": "npm run 'rbxtsc watch'",
+            "hide": true,
+            "dependsOrder": "parallel",
+            "presentation": {
+                "group": "watchTask"
             }
+        },
+        {
+            "label": "__rojoserve",
+            "type": "shell",
+            "command": "rojo serve ${input:projectJson}",
+            "hide": true,
+            "dependsOrder": "parallel",
+            "presentation": {
+                "group": "watchTask"
+            }
+        },
+        {
+            "label": "__moonwavedev",
+            "type": "shell",
+            "command": "npm run 'moonwave dev'",
+            "hide": true,
+            "dependsOrder": "parallel",
+            "presentation": {
+                "group": "watchTask"
+            }
+        },
+        {
+            "label": "Watch Place",
+            "dependsOn": ["__rbxtscwatch", "__rojoserve", "__moonwavedev"],
+            "dependsOrder": "parallel",
+        },
+        {
+            "label": "__lintluau",
+            "type": "shell",
+            "command": "selene src",
+            "hide": true,
+            "dependsOrder": "parallel",
+            "presentation": {
+                "group": "lintTask"
+            }
+        },
+        {
+            "label": "Lint",
+            "dependsOn": ["__lintluau"],
+            "dependsOrder": "parallel",
+        },
+        {
+            "label": "__formatluau",
+            "type": "shell",
+            "command": "stylua src",
+            "hide": true,
+            "dependsOrder": "parallel",
+            "presentation": {
+                "group": "formatTask"
+            }
+        },
+        {
+            "label": "Format",
+            "dependsOn": ["__formatluau"],
+            "dependsOrder": "parallel"
         }
     ],
     "inputs": [
         {
-            "id": "placeFileName",
+            "id": "placeFileBaseName",
             "type": "promptString",
-            "description": "Place filename",
+            "description": "The base name of the place file.",
             "default": "place"
-        },
-        {
-            "id": "placeDirectory",
-            "type": "promptString",
-            "description": "The location of your place files as an path. If it doesn't exist, it will try to create one.",
-            "default": "places"
         },
         {
             "id": "placeFileExtension",
             "type": "pickString",
             "description": "Choose the file extension of your place file.",
-            "options": ["rbxl", "rbxlx"]
+            "options": ["rbxl", "rbxlx"],
+            "default": "rbxl"
         },
         {
             "id": "placePublishingKey",
@@ -109,11 +159,12 @@
             "type": "pickString",
             "description": "saved = only upload to Roblox; published = upload and release it to the public",
             "options": ["saved", "published"]
+        },
+        {
+            "id": "projectJson",
+            "type": "promptString",
+            "description": "The path of an *.project.json file.",
+            "default": "default.project.json"
         }
     ]
 }
-/*
-assets create -t 'audio-mp3 -ogg, decal-png -jpeg, mode-fbx'
-
-
-*/
