@@ -23,60 +23,36 @@
             }
         },
         {
-            "label": "rbxtsc watch",
+            "label": "__rbxtscbuild",
             "type": "shell",
-            "command": "npm run-script watch",
-            "isBackground": true,
-            "presentation": {
-                "reveal": "silent",
-            }
+            "command": "npm run 'rbxtsc build'",
+            "hide": true,
+            "group": "build"
         },
         {
-            "label": "rojo watch",
+            "label": "__rojobuild",
             "type": "shell",
-            "command": "rojo build --watch -o ${input:placeFileName}",
-            "isBackground": true,
-            "presentation": {
-                "reveal": "silent"
-            }
+            "command": "rojo build --output ${input:placeFileName}.${input:placeFileExtension}",
+            "hide": true,
+            "group": "build"
         },
         {
-            "label": "rojo build place",
+            "label": "__moonwavebuild",
             "type": "shell",
-            "windows": {
-                "command": "npm run-script build;; rojo build --output ${input:placeFileName}"// lune run ./lune/RojoBuildPlace.luau ${input:placeDirectory} ${input:placeFileName} ${input:placeFileExtension}"
-            },
+            "command": "npm run 'moonwave build'",
+            "hide": true,
+            "group": "build"
+        },
+        {
+            "label": "Build Project",
+            "type": "shell",
+            "dependsOn": ["__rbxtscbuild","__rojobuild","__moonwavebuild"],
+            "dependsOrder": "sequence",
             "group": {
                 "kind": "build",
                 "isDefault": true
             }
-        },
-        {
-            "label": "rojo upload",
-            "type": "shell",
-            "command": "rojo upload --api_key ${input:placePublishingKey} --asset_id ${input:assetId} --universe_id ${input:universeId}",
-            "group": "build"
-        },
-        {
-            "label": "rbxcloud upload experience",
-            "type": "shell",
-            "command": "rbxcloud experience publish --api-key ${input:placePublishingKey} --place-id ${input:assetId} --universe-id ${input:universeId} --version-type ${input:versionType} --filename ${input:rbxcloudPlaceFilepath}"
-        },
-        // {
-        //     "label": "rbxcloud bulk upload places",
-        //     "type": "shell",
-        //     "command": "lune run ./lune/BulkUploadPlace.luau ${input:placePublishingKey} ${input:universeId} ${input:placeDirectory}"
-        // },
-        {
-            "label": "lune run",
-            "type": "shell",
-            "command": "lune run ${file}"
-        },
-        {
-            "label": "Install moonwave",
-            "type": "shell",
-            "command": "npm i -g moonwave"
-        },
+        }
     ],
     "inputs": [
         {
