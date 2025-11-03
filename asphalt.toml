@@ -3,15 +3,14 @@ type = "user" # user | group
 id = 0
 
 [codegen]
-output_name = "Asphalt"
 typescript = true
 style = "flat"
 strip_extension = false
 content = false
 
 [inputs.assets]
-path="public/**/*"
-output_path="src/shared"
+path = "public/**/*"
+output_path = "src/shared/Asphalt"
 bleed = true
 warn_each_duplicate = true
 

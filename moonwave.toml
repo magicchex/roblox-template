@@ -1,27 +1,8 @@
-title = "Template Documentation"
-gitRepoUrl = ""
-
-gitSourceBranch = "master"
-changelog = true
 classOrder = []
 
-[docusaurus] # https://docusaurus.io/docs/api/docusaurus-config
-title = 'Template Documentation'
-url = ''
-baseUrl = ""
-favicon = ""
-# themeConfig = {}
-onBrokenLinks = "throw"
-onBrokenMarkdownLinks = "warn"
-
+[docusaurus]
+onBrokenLinks = "warn"
 
 [footer]
 style = "dark"
 copyright = "Copyright © 2025 AUTHOR. Built with Moonwave and Docusaurus"
-
-# [[footer.links]]
-# title = "examples"
-
-# [[footer.links.items]]
-# label = "example"
-# href = "https://example.com/"
