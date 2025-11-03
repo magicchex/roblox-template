@@ -21,6 +21,18 @@
             "group": "build"
         },
         {
+            "label": "__wallyinstall",
+            "type": "shell",
+            "windows": {
+                "command": "if (Test-Path 'wally.toml') { wally install } else { Write-Host 'Skipped Wally.' }"
+            },
+            "linux": {
+                "command": "if [ -f wally.toml ]; then wally install; else echo 'Skipped Wally.'; fi"
+            },
+            "hide": true,
+            "group": "build"
+        },
+        {
             "label": "__rojobuild",
             "type": "shell",
             "command": "rojo build --output ${input:placeFilePathNoExtension}.${input:placeFileExtension} ${input:projectJson}",
@@ -36,7 +48,7 @@
         },
         {
             "label": "Build Place",
-            "dependsOn": ["__rbxtscbuild","__rojobuild","__moonwavebuild"],
+            "dependsOn": ["__wallyinstall", "__rbxtscbuild","__rojobuild","__moonwavebuild"],
             "dependsOrder": "sequence",
             "group": {
                 "kind": "build",
