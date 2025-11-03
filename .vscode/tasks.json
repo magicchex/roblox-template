@@ -23,7 +23,7 @@
         {
             "label": "__rojobuild",
             "type": "shell",
-            "command": "rojo build --output ${input:placeFilePathNoExtension}.${input:placeFileExtension}",
+            "command": "rojo build --output ${input:placeFilePathNoExtension}.${input:placeFileExtension} ${input:projectJson}",
             "hide": true,
             "group": "build"
         },
@@ -46,7 +46,7 @@
         {
             "label": "__rbxtscwatch",
             "type": "shell",
-            "command": "npm run 'rbxtsc watch' -- --rojo ${input:projectJson}",
+            "command": "npm run 'rbxtsc watch' -- --rojo ${input:projectJsonRbxTS}",
             "hide": true,
             "presentation": {
                 "group": "watchTask"
@@ -55,7 +55,7 @@
         {
             "label": "__rojoserve",
             "type": "shell",
-            "command": "rojo serve ${input:projectJson}",
+            "command": "rojo serve ${input:projectJsonRojo}",
             "hide": true,
             "presentation": {
                 "group": "watchTask"
@@ -85,8 +85,17 @@
             }
         },
         {
+            "label": "__linttypescript",
+            "type": "shell",
+            "command": "npm run 'eslint'",
+            "hide": true,
+            "presentation": {
+                "group": "lintTask"
+            }
+        },
+        {
             "label": "Lint",
-            "dependsOn": ["__lintluau"],
+            "dependsOn": ["__lintluau", "__linttypescript"],
             "dependsOrder": "parallel",
         },
         {
@@ -101,7 +110,7 @@
         {
             "label": "__formattypescript",
             "type": "shell",
-            "command": "npm run 'prettier format'",
+            "command": "npm run 'prettier write'",
             "hide": true,
             "presentation": {
                 "group": "formatTask"
@@ -168,6 +177,18 @@
             "id": "projectJson",
             "type": "promptString",
             "description": "The path of an *.project.json file.",
+            "default": "default.project.json"
+        },
+        {
+            "id": "projectJsonRbxTS",
+            "type": "promptString",
+            "description": "(roblox-ts) The path of an *.project.json file.",
+            "default": "default.project.json"
+        },
+        {
+            "id": "projectJsonRojo",
+            "type": "promptString",
+            "description": "(Rojo) The path of an *.project.json file.",
             "default": "default.project.json"
         }
     ]
