@@ -10,5 +10,4 @@
         "rootDir": "./src",
         "outDir": "./out",
     },
-    "exclude": ["**/.gitkeep", "**/**Asphalt**.luau"]
 }
