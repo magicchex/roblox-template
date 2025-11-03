@@ -24,6 +24,8 @@
 	},
 	"homepage": "https://github.com/magicchex/roblox-template#readme",
 	"devDependencies": {
+		"@eslint/eslintrc": "^3.3.1",
+		"@eslint/js": "^9.39.0",
 		"@rbxts/compiler-types": "^3.0.0-types.0",
 		"@rbxts/types": "^1.0.884",
 		"@typescript-eslint/eslint-plugin": "^8.45.0",
