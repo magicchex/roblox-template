@@ -11,7 +11,9 @@
 		"rbxtsc build": "rbxtsc",
 		"moonwave build": "moonwave build",
 		"moonwave dev": "moonwave dev",
-		"prettier format": "prettier . --write"
+		"prettier write": "prettier . --write",
+		"prettier check": "prettier . --check",
+		"eslint": "eslint src"
 	},
 	"repository": {
 		"type": "git",
