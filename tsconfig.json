@@ -10,6 +10,5 @@
         "rootDir": "./src",
         "outDir": "./out",
     },
-    "include": ["src/**"],
     "exclude": ["**/.gitkeep", "**/**Asphalt**.luau"]
 }
