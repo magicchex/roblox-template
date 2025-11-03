@@ -1,1 +1,2 @@
 std = "roblox"
+exclude = ["**Asphalt**.luau", "node_modules/**", "out/**"]
