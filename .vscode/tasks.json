@@ -23,7 +23,7 @@
         {
             "label": "__rojobuild",
             "type": "shell",
-            "command": "rojo build --output ${input:placeFileBaseName}.${input:placeFileExtension}",
+            "command": "rojo build --output ${input:placeFilePathNoExtension}.${input:placeFileExtension}",
             "hide": true,
             "group": "build"
         },
@@ -46,9 +46,8 @@
         {
             "label": "__rbxtscwatch",
             "type": "shell",
-            "command": "npm run 'rbxtsc watch'",
+            "command": "npm run 'rbxtsc watch' -- --rojo ${input:projectJson}",
             "hide": true,
-            "dependsOrder": "parallel",
             "presentation": {
                 "group": "watchTask"
             }
@@ -58,7 +57,6 @@
             "type": "shell",
             "command": "rojo serve ${input:projectJson}",
             "hide": true,
-            "dependsOrder": "parallel",
             "presentation": {
                 "group": "watchTask"
             }
@@ -68,7 +66,6 @@
             "type": "shell",
             "command": "npm run 'moonwave dev'",
             "hide": true,
-            "dependsOrder": "parallel",
             "presentation": {
                 "group": "watchTask"
             }
@@ -83,7 +80,6 @@
             "type": "shell",
             "command": "selene src",
             "hide": true,
-            "dependsOrder": "parallel",
             "presentation": {
                 "group": "lintTask"
             }
@@ -98,22 +94,30 @@
             "type": "shell",
             "command": "stylua src",
             "hide": true,
-            "dependsOrder": "parallel",
+            "presentation": {
+                "group": "formatTask"
+            }
+        },
+        {
+            "label": "__formattypescript",
+            "type": "shell",
+            "command": "npm run 'prettier format'",
+            "hide": true,
             "presentation": {
                 "group": "formatTask"
             }
         },
         {
             "label": "Format",
-            "dependsOn": ["__formatluau"],
+            "dependsOn": ["__formatluau", "__formattypescript"],
             "dependsOrder": "parallel"
         }
     ],
     "inputs": [
         {
-            "id": "placeFileBaseName",
+            "id": "placeFilePathNoExtension",
             "type": "promptString",
-            "description": "The base name of the place file.",
+            "description": "The filepath without the .rbxl(x) extension",
             "default": "place"
         },
         {
