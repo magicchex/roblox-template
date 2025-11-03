@@ -1,4 +1,4 @@
-import { defineConfig } from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 import robloxTs from "eslint-plugin-roblox-ts";
 import typescriptEslintEslintPlugin from "@typescript-eslint/eslint-plugin";
 import prettier from "eslint-plugin-prettier";
@@ -11,58 +11,65 @@ import { FlatCompat } from "@eslint/eslintrc";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all
+	baseDirectory: __dirname,
+	recommendedConfig: js.configs.recommended,
+	allConfig: js.configs.all
 });
 
-export default defineConfig([{
-    extends: compat.extends(
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:prettier/recommended",
-        "plugin:roblox-ts/recommended",
-    ),
+export default defineConfig([
+	globalIgnores(["build/**", "out/**", "node_modules/**", "include/**", "eslint.config.mjs", "**/**Asphalt**"]),
+	{
+		extends: compat.extends(
+			"eslint:recommended",
+			"plugin:@typescript-eslint/recommended",
+			"plugin:prettier/recommended",
+			"plugin:roblox-ts/recommended-legacy"
+		),
 
-    plugins: {
-        "roblox-ts": robloxTs,
-        "@typescript-eslint": typescriptEslint,
-        "@typescript-eslint": typescriptEslintEslintPlugin,
-        prettier,
-    },
+		plugins: {
+			"@typescript-eslint": typescriptEslintEslintPlugin,
+			prettier
+		},
 
-    languageOptions: {
-        parser: tsParser,
-        ecmaVersion: 2018,
-        sourceType: "module",
+		languageOptions: {
+			parser: tsParser,
+			ecmaVersion: 2018,
+			sourceType: "module",
 
-        parserOptions: {
-            jsx: true,
-            useJSXTextNode: true,
-            project: "./tsconfig.json",
-        },
-    },
+			parserOptions: {
+				jsx: true,
+				useJSXTextNode: true,
+				project: "./tsconfig.json"
+			}
+		},
 
-    rules: {
-        "prettier/prettier": "warn",
+		rules: {
+			"prettier/prettier": "warn",
 
-        "@typescript-eslint/array-type": ["warn", {
-            default: "generic",
-            readonly: "generic",
-        }],
+			"@typescript-eslint/array-type": [
+				"warn",
+				{
+					default: "generic",
+					readonly: "generic"
+				}
+			],
 
-        "@typescript-eslint/no-unused-vars": "warn",
-        "@typescript-eslint/explicit-function-return-type": "warn",
-        "@typescript-eslint/no-namespace": "warn",
-        "@typescript-eslint/no-non-null-assertion": "off",
-        "@typescript-eslint/no-empty-function": "warn",
+			"@typescript-eslint/no-unused-vars": "warn",
+			"@typescript-eslint/explicit-function-return-type": "warn",
+			"@typescript-eslint/no-namespace": "warn",
+			"@typescript-eslint/no-non-null-assertion": "off",
+			"@typescript-eslint/no-empty-function": "warn",
 
-        "prefer-const": ["warn", {
-            destructuring: "all",
-        }],
+			"prefer-const": [
+				"warn",
+				{
+					destructuring: "all"
+				}
+			],
 
-        "no-undef-init": "error",
-        "no-mixed-spaces-and-tabs": "error",
-        "constructor-super": "error",
-    },
-}]);
+			"no-undef-init": "error",
+			"no-mixed-spaces-and-tabs": "error",
+			"constructor-super": "error"
+		}
+	}
+]);
