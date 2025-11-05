@@ -35,14 +35,14 @@
         {
             "label": "__rojobuild",
             "type": "shell",
-            "command": "rojo build --output ${input:placeFilePathNoExtension}.${input:placeFileExtension} ${input:projectJson}",
+            "command": "rojo build --output out/${input:placeFilePathNoExtension}.${input:placeFileExtension} ${input:projectJson}",
             "hide": true,
             "group": "build"
         },
         {
             "label": "__moonwavebuild",
             "type": "shell",
-            "command": "npm run 'moonwave build'",
+            "command": "npm run 'moonwave build' -- --out-dir out/moonwave",
             "hide": true,
             "group": "build"
         },
