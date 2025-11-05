@@ -1,3 +1,4 @@
+#:schema https://raw.githubusercontent.com/jackTabsCode/asphalt/refs/heads/main/schema.json
 [creator]
 type = "user" # user | group
 id = 0
