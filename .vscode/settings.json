@@ -35,7 +35,7 @@
       "fileMatch": [
         "**/*.project.json"
       ],
-      "url": "https://github.com/magicchex/json-schema/raw/refs/heads/main/rbx-rojo/model.schema.json"
+      "url": "https://github.com/magicchex/json-schema/raw/refs/heads/main/rbx-rojo/project.schema.json"
     }
   ],
   "workbench.editor.customLabels.enabled": true,
