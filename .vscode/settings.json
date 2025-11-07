@@ -24,6 +24,18 @@
         "**/*.model.json"
       ],
       "url": "https://raw.githubusercontent.com/magicchex/json-schema/refs/heads/main/rbx-rojo/model.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/*.meta.json"
+      ],
+      "url": "https://raw.githubusercontent.com/magicchex/json-schema/refs/heads/main/rbx-rojo/meta.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/*.project.json"
+      ],
+      "url": "https://raw.githubusercontent.com/magicchex/json-schema/refs/heads/main/rbx-rojo/project.schema.json"
     }
   ],
   "workbench.editor.customLabels.enabled": true,
