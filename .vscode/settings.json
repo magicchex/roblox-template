@@ -29,13 +29,13 @@
       "fileMatch": [
         "**/*.meta.json"
       ],
-      "url": "https://github.com/magicchex/json-schema/raw/refs/heads/main/rbx-rojo/meta.schema.json"
+      "url": "https://raw.githubusercontent.com/magicchex/json-schema/refs/heads/main/rbx-rojo/meta.schema.json"
     },
     {
       "fileMatch": [
         "**/*.project.json"
       ],
-      "url": "https://github.com/magicchex/json-schema/raw/refs/heads/main/rbx-rojo/project.schema.json"
+      "url": "https://raw.githubusercontent.com/magicchex/json-schema/refs/heads/main/rbx-rojo/project.schema.json"
     }
   ],
   "workbench.editor.customLabels.enabled": true,
